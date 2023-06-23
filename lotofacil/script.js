@@ -1,18 +1,30 @@
 
-//let pesquisar = document.querySelector("#pesquisar");
 
 
-    function pesquisar(concurso){
-    fetch(`https://loteriascaixa-api.herokuapp.com/api/lotofacil/${pesquisar}`).then(function (response) {
+let dados = document.querySelector("#pesquisar");
+
+    async function  pesquisarConc(){
+        const dados = await fetch(`https://loteriascaixa-api.herokuapp.com/api/lotofacil/${pesquisar.value}`).then(function (response) {
         response.json().then(function (data) {
-            console.log(data)
+            //console.log(data);
+            monstrarDados()
         })
     });
 }
-function pesquisarUltimo(){
-    fetch("https://loteriascaixa-api.herokuapp.com/api/lotofacil/2844").then(function (response) {
-        response.json().then(function (data) {
-            console.log(data)
-        })
-    });
+    
+    async function pesquisarUltimo(){
+        const dados = await fetch("https://loteriascaixa-api.herokuapp.com/api/lotofacil/2844").then(function (response) {
+            response.json().then(function (data) {
+               //console.log(data)
+                monstrarDados()
+            })
+        });
+    }
+
+
+function monstrarDados(data){
+    document.querySelector("data").innerHTML = resultado;
+    
+    console.log(dados)
+
 }

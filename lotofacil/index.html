@@ -16,54 +16,57 @@
     </header>
     <div class="body">
         <section class="section">
-            <div><input class="input" typ="number" id="concurso" placeholder="Concurso"></div>
-            <div><button class="input"onclick="concurso()">pesquisar</button></div>
+            <div><input class="input" typ="number" id="pesquisar" placeholder="Concurso"></div>
+            <div><button class="input" onclick="pesquisarConc()">pesquisar</button></div>
         </section>
-        <section class="section"><div><button class="input"onclick="pesquisarUltimo()">Ultimo concurso</button></div></section>
+
         <section class="section">
-            <div class="resultado" id="resultado">
-                <p>1</p>
+            <div><button class="input" onclick="pesquisarUltimo()">Ultimo concurso</button></div>
+        </section>
+        <section class="section">
+            <div class="resultado" id="num1">
+                <p></p>
             </div>
-            <div class="resultado" id="resultado">
+            <div class="resultado" id="num2">
                 <p>2</p>
             </div>
-            <div class="resultado" id="resultado">
+            <div class="resultado" id="num3">
                 <p>3</p>
             </div>
-            <div class="resultado" id="resultado">
+            <div class="resultado" id="num4">
                 <p>4</p>
             </div>
-            <div class="resultado" id="resultado">
+            <div class="resultado" id="num5">
                 <p>5</p>
             </div>
-            <div class="resultado" id="resultado">
+            <div class="resultado" id="num6">
                 <p>6</p>
             </div>
-            <div class="resultado" id="resultado">
+            <div class="resultado" id="num7">
                 <p>7</p>
             </div>
-            <div class="resultado" id="resultado">
+            <div class="resultado" id="num8">
                 <p>8</p>
             </div>
-            <div class="resultado" id="resultado">
+            <div class="resultado" id="num9">
                 <p>9</p>
             </div>
-            <div class="resultado" id="resultado">
+            <div class="resultado" id="num10">
                 <p>10</p>
             </div>
-            <div class="resultado" id="resultado">
+            <div class="resultado" id="num11">
                 <p>11</p>
             </div>
-            <div class="resultado" id="resultado">
+            <div class="resultado" id="num12">
                 <p>12</p>
             </div>
-            <div class="resultado" id="resultado">
+            <div class="resultado" id="num13">
                 <p>13</p>
             </div>
-            <div class="resultado" id="resultado">
+            <div class="resultado" id="num14">
                 <p>14</p>
             </div>
-            <div class="resultado" id="resultado">
+            <div class="resultado" id="num15">
                 <p>15</p>
             </div>
             <script src="script.js"></script>
@@ -76,122 +79,121 @@
 
         </section>
     </footer>
-    
+
 </body>
 
 </html>
 
-        <script>
+<script>
 
 
-        </script>
-        <style>
-            button {
-                background-color: purple;
-                text-transform: uppercase;
-                color: whitesmoke;
-                padding: 3px;
-                width: 120px;
-                cursor: pointer;
-            }
+</script>
+<style>
+    button {
+        background-color: purple;
+        text-transform: uppercase;
+        color: whitesmoke;
+        padding: 3px;
+        width: 120px;
+        cursor: pointer;
+    }
 
-            button:hover {
-                background-color: rgba(128, 0, 128, 0.759);
-                box-shadow: rgba(0, 0, 0, 0.649) 10px 10px 20px;
+    button:hover {
+        background-color: rgba(128, 0, 128, 0.759);
+        box-shadow: rgba(0, 0, 0, 0.649) 10px 10px 20px;
 
-            }
+    }
 
-            .input {
-                width: 150px;
-                height: 50px;
-                border: none;
-                border-radius: 3px;
-                padding: 3px;
-                text-align: center;
-                font-size: 20px;
-                margin: 3px;
-                text-shadow: purple 10px 10px 20px;
-            }
+    .input {
+        width: 150px;
+        height: 50px;
+        border: none;
+        border-radius: 3px;
+        padding: 3px;
+        text-align: center;
+        font-size: 20px;
+        margin: 3px;
+        text-shadow: purple 10px 10px 20px;
+    }
 
-            .resultado {
-                display: flex;
-                background-color: purple;
-                color: whitesmoke;
-                text-shadow: rgba(0, 0, 0, 0.574) 10px 10px 10px;
-                box-shadow: rgba(0, 0, 0, 0.649) 10px -1px 5px;
-                margin-left: 3px;
-                border-radius: 50%;
-                justify-content: center;
-                align-items: center;
-                text-align: center;
-                font-size: 40px;
-                font-style: italic;
-                font-weight: bolder;
-                width: 70px;
-                height: 70px;
-                padding: 3px;
-                margin: 5px;
-            }
+    .resultado {
+        display: flex;
+        background-color: purple;
+        color: whitesmoke;
+        text-shadow: rgba(0, 0, 0, 0.574) 10px 10px 10px;
+        box-shadow: rgba(0, 0, 0, 0.649) 10px -1px 5px;
+        margin-left: 3px;
+        border-radius: 50%;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 40px;
+        font-style: italic;
+        font-weight: bolder;
+        width: 70px;
+        height: 70px;
+        padding: 3px;
+        margin: 5px;
+    }
 
-            p {
-                text-shadow: black 10px 10px 10px;
-                border-color: whitesmoke 3px solid;
-
-
-
-            }
-
-            .section {
-                display: flex;
-                flex-wrap: wrap;
-                max-width: 95%;
-                justify-content: center;
-                text-align: center;
-                align-items: center;
-                background-color: rgba(128, 0, 128, 0.125);
-                box-shadow: rgba(0, 0, 0, 0.649) 10px 10px 10px;
-                border-radius: 10px;
-                padding: 20px;
-                margin: 20px;
-                columns: auto;
-                gap: 4px;
+    p {
+        text-shadow: black 10px 10px 10px;
+        border-color: whitesmoke 3px solid;
 
 
-            }
 
-            h1 {
-                display: flex;
-                min-width: 300px;
-                max-width: 95%;
-                font-style: normal;
-                justify-content: center;
-                color: purple;
-                font-weight: bolder;
-                font-size: 40px;
-                text-shadow: rgba(0, 0, 0, 0.559) 10px 10px 10px;
-                text-align: center;
-                padding: 30px;
-                text-transform: uppercase;
-                height: auto;
-                margin: 3px;
+    }
 
-            }
+    .section {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 95%;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        background-color: rgba(128, 0, 128, 0.125);
+        box-shadow: rgba(0, 0, 0, 0.649) 10px 10px 10px;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 20px;
+        columns: auto;
+        gap: 4px;
 
-            .title {
-                min-width: 300px;
-                max-width: 100%;
-                height: 50%;
-            }
 
-            body {
-                display: grid;
-                background-color: white;
-                justify-content: center;
-            }
+    }
 
-            * {
-                padding: 0;
-                margin: 0;
-            }
-        </style>
+    h1 {
+        display: flex;
+        min-width: 300px;
+        max-width: 95%;
+        font-style: normal;
+        justify-content: center;
+        color: purple;
+        font-weight: bolder;
+        font-size: 40px;
+        text-shadow: rgba(0, 0, 0, 0.559) 10px 10px 10px;
+        text-align: center;
+        padding: 30px;
+        text-transform: uppercase;
+        height: auto;
+        margin: 3px;
 
+    }
+
+    .title {
+        min-width: 300px;
+        max-width: 100%;
+        height: 50%;
+    }
+
+    body {
+        display: grid;
+        background-color: white;
+        justify-content: center;
+    }
+
+    * {
+        padding: 0;
+        margin: 0;
+    }
+</style>
