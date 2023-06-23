@@ -16,8 +16,8 @@
     </header>
     <div class="body">
         <section class="section">
-            <div><input class="input" onclick="pesquisar()" typ="number" id="pesquisar" placeholder="Concurso"></div>
-            <div><button class="input">pesquisar</button></div>
+            <div><input class="input" typ="number" id="pesquisar" placeholder="Concurso"></div>
+            <div><button class="input"onclick="pesquisar()">pesquisar</button></div>
         </section>
         <section class="section">
             <div class="resultado" id="resultado">
@@ -65,21 +65,22 @@
             <div class="resultado" id="resultado">
                 <p>15</p>
             </div>
+            <script src="script.js"></script>
         </section>
     </div>
     <footer>
+        <section class="section">
+            <div></div>
+            <div></div>
+
+        </section>
+    </footer>
+    
+</body>
+
+</html>
+
         <script>
-
-            let url = `https://loteriascaixa-api.herokuapp.com/api/lotofacil/2027`
-
-
-    function pesquisar(){
-        fetch(url).then(function (response) {
-            response.json().then(function (data) {
-                console.log(data)
-            })
-        });
-    }
 
 
         </script>
@@ -193,7 +194,3 @@
             }
         </style>
 
-    </footer>
-</body>
-
-</html>
