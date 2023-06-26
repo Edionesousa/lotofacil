@@ -7,24 +7,20 @@ let dados = document.querySelector("#pesquisar");
         const dados = await fetch(`https://loteriascaixa-api.herokuapp.com/api/lotofacil/${pesquisar.value}`).then(function (response) {
         response.json().then(function (data) {
             //console.log(data);
-            monstrarDados()
+            //monstrarDados()
         })
     });
 }
     
     async function pesquisarUltimo(){
-        const dados = await fetch("https://loteriascaixa-api.herokuapp.com/api/lotofacil/2844").then(function (response) {
+        var dados = await fetch("https://loteriascaixa-api.herokuapp.com/api/lotofacil/2844").then(function (response) {
             response.json().then(function (data) {
-               //console.log(data)
-                monstrarDados()
+              console.log(data)
             })
         });
     }
 
 
-function monstrarDados(data){
-    document.querySelector("data").innerHTML = resultado;
     
-    console.log(dados)
+    
 
-}
