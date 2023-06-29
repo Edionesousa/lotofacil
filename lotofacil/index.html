@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer ></script>
+    <script src="script.js" defer></script>
     <title>Lotofacil</title>
 </head>
 
@@ -17,22 +17,23 @@
     </header>
     <div class="body">
         <form class="section">
-            <div><input class="input" value="" typ="number" id="pesquisar" placeholder="Concurso">
-            <button class="input" onclick="dadosTela()">pesquisar</button></div>
+            <div><input class="input" typ="number" onload="popularTela()" id="pesquisar" placeholder="Concurso">
+                <button class="input" onclick="popularTela()">pesquisar</button>
+            </div>
         </form>
 
         <form class="section">
-            <div><button class="input" onclick="">Ultimo concurso</button></div>
+            <div><button class="input" onclick="popularTela">Ultimo concurso</button></div>
         </form>
         <section class="section">
-            <div class="resultado" >
-                <p id="num0"></p>
+            <div class="resultado" id="num0">
+                <p>0</p>
             </div>
-            <div class="resultado"id="num1" >
-            <p >1</p>
+            <div class="resultado" id="num1">
+                <p>1</p>
             </div>
-            <div class="resultado"id="num2">
-            <p >2</p>
+            <div class="resultado" id="num2">
+                <p>2</p>
             </div>
             <div class="resultado" id="num3">
                 <p>3</p>
@@ -76,10 +77,37 @@
         </section>
     </div>
     <footer>
-        <section class="section" id="premiados">
-            <div>premiados</div>
-
+        <section class="section pontos">
+            <section>
+                    <div id="nome">Estado </div>
+                    <div id="uf">UF</div>
+                 
+            </section>
+            <section class="ponotos">
+                <div>
+                    <div id="acertos">acerto</div>
+                    <div id="vencedores">vencedores</div>
+                    <div id="premio">premio</div>
+                </div>
+            </section>
+            <section class="ponotos">
+                <p id=""></p>
+                <p id=""></p>
+                <p id=""></p>
+            </section>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
         </section>
+
+
+        <div id="Pts">13 PONTOS:</div>
+        <div id="Pts">12 PONTOS:</div>
+        <div id="Pts">11 PONTOS:</div>
+        <div id="Pts">10 PONTOS:</div>
     </footer>
 
 </body>
@@ -91,6 +119,27 @@
 
 </script>
 <style>
+    .pontos div{
+        display:flex;
+        max-width: 95%;
+        font-size: 20px;
+        text-transform: capitalize;
+        color: black;
+        text-shadow: none;
+        padding: 10px;
+        margin: 3px;
+        border-radius: 3px;
+        background-color: rgba(128, 0, 128, 0.664);
+        color: whitesmoke;
+        text-shadow: rgba(0, 0, 0, 0.574) 10px 10px 10px;
+
+
+    }
+    .pontos:hover{
+        background-color: rgba(128, 0, 128, 0.548);
+        border-color: whitesmoke;
+   
+    }
     input button {
         background-color: purple;
         text-transform: uppercase;
@@ -100,7 +149,7 @@
         cursor: pointer;
     }
 
-    button:hover {
+    button:hover{
         background-color: rgba(128, 0, 128, 0.759);
         box-shadow: rgba(0, 0, 0, 0.649) 10px 10px 20px;
 
@@ -117,8 +166,8 @@
         margin: 3px;
         text-shadow: purple 10px 10px 20px;
         outline: none;
-        
-        
+
+
     }
 
     .resultado {
@@ -142,10 +191,7 @@
     }
 
     p {
-        text-shadow: black 10px 10px 10px;
         border-color: whitesmoke 3px solid;
-
-
 
     }
 
