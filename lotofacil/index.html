@@ -17,14 +17,10 @@
     </header>
     <div class="body">
         <form class="section">
-            <div><input class="input" typ="number" onload="popularTela()" id="pesquisar" placeholder="Concurso">
-                <button class="input" onclick="popularTela()">pesquisar</button>
-            </div>
+            <input class="input" type="number" id="pesquisar" placeholder="Concurso">
+            <button class="input" onclick="pesquisar()">pesquisar</button>
         </form>
 
-        <form class="section">
-            <div><button class="input" onclick="popularTela">Ultimo concurso</button></div>
-        </form>
         <section class="section">
             <div class="resultado" id="num0">
                 <p>0</p>
@@ -71,43 +67,17 @@
             <div class="resultado" id="num14">
                 <p>14</p>
             </div>
-            <div class="resultado" id="num15">
-                <p>15</p>
-            </div>
+        </section>
+        <!--Estado ganhador-->
+        <section class="section pontos">
+            <section class="section">
+                <div id="nome">Estado </div>
+                <div id="uf">UF</div>
+            </section>
         </section>
     </div>
-    <footer>
-        <section class="section pontos">
-            <section>
-                    <div id="nome">Estado </div>
-                    <div id="uf">UF</div>
-                 
-            </section>
-            <section class="ponotos">
-                <div>
-                    <div id="acertos">acerto</div>
-                    <div id="vencedores">vencedores</div>
-                    <div id="premio">premio</div>
-                </div>
-            </section>
-            <section class="ponotos">
-                <p id=""></p>
-                <p id=""></p>
-                <p id=""></p>
-            </section>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-            <p></p>
-        </section>
-
-
-        <div id="Pts">13 PONTOS:</div>
-        <div id="Pts">12 PONTOS:</div>
-        <div id="Pts">11 PONTOS:</div>
-        <div id="Pts">10 PONTOS:</div>
+    <footer class="section">
+        <section>EDIONE</section>
     </footer>
 
 </body>
@@ -119,27 +89,7 @@
 
 </script>
 <style>
-    .pontos div{
-        display:flex;
-        max-width: 95%;
-        font-size: 20px;
-        text-transform: capitalize;
-        color: black;
-        text-shadow: none;
-        padding: 10px;
-        margin: 3px;
-        border-radius: 3px;
-        background-color: rgba(128, 0, 128, 0.664);
-        color: whitesmoke;
-        text-shadow: rgba(0, 0, 0, 0.574) 10px 10px 10px;
 
-
-    }
-    .pontos:hover{
-        background-color: rgba(128, 0, 128, 0.548);
-        border-color: whitesmoke;
-   
-    }
     input button {
         background-color: purple;
         text-transform: uppercase;
@@ -149,7 +99,7 @@
         cursor: pointer;
     }
 
-    button:hover{
+    button:hover {
         background-color: rgba(128, 0, 128, 0.759);
         box-shadow: rgba(0, 0, 0, 0.649) 10px 10px 20px;
 
@@ -212,8 +162,25 @@
 
 
     }
+    h3{
+        display: flex;
+        min-width: 300px;
+        max-width: 95%;
+        font-style: normal;
+        justify-content: center;
+        color: purple;
+        font-weight: bolder;
+        font-size: 30px;
+        text-shadow: rgba(0, 0, 0, 0.559) 10px 10px 10px;
+        text-align: center;
+        text-transform: uppercase;
+        height: auto;
+        margin: 3px;
+       padding: 5px;
+       margin: 3px; 
+    }
 
-    h1 {
+    h1{
         display: flex;
         min-width: 300px;
         max-width: 95%;
