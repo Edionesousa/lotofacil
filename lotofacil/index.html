@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Geologica:wght@100;200;300;400;500&family=Libre+Baskerville:ital,wght@0,700;1,400&family=Noto+Serif:ital,wght@0,400;1,400;1,700&display=swap"
+        rel="stylesheet">
     <script src="script.js" defer></script>
     <title>Lotofacil</title>
 </head>
@@ -20,11 +25,14 @@
             <input class="input" type="number" id="pesquisar" placeholder="Digite o concurso" value="2850">
             <button class="input" onclick="chamarInptValue()">pesquisar</button>
         </section>
+        <section class="section">
+            <button class="button" id="atual">Ultimo concurso</button>
+        </section>
 
         <section class="section">
             <div class="resultado" id="num0">
                 <p></p>
-                 </div>
+            </div>
             <div class="resultado" id="num1">
                 <p></p>
             </div>
@@ -69,8 +77,9 @@
             </div>
         </section>
         <!--Estado ganhador-->
-        <section class="section pontos">
-            <section class="section">
+        <section class="section">
+            <section class="estado">
+                <h3>Estado ganhador</h3>
                 <div id="nome">Estado </div>
                 <div id="uf">UF</div>
             </section>
@@ -89,6 +98,23 @@
 
 </script>
 <style>
+    *{font-family: 'Dancing Script', cursive;
+font-family: 'Geologica', sans-serif;
+font-family: 'Libre Baskerville', serif;
+font-family: 'Noto Serif', serif;
+}
+body{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 450px;
+
+    .estado {
+        font-size: 40px;
+        color: purple;
+        border-color: purple;
+    }
 
     input button {
         background-color: purple;
@@ -162,7 +188,8 @@
 
 
     }
-    h3{
+
+    h3 {
         display: flex;
         min-width: 300px;
         max-width: 95%;
@@ -176,11 +203,11 @@
         text-transform: uppercase;
         height: auto;
         margin: 3px;
-       padding: 5px;
-       margin: 3px; 
+        padding: 5px;
+        margin: 3px;
     }
 
-    h1{
+    h1 {
         display: flex;
         min-width: 300px;
         max-width: 95%;
@@ -214,4 +241,5 @@
         padding: 0;
         margin: 0;
     }
+}
 </style>
