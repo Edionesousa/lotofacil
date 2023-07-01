@@ -8,16 +8,15 @@ function chamarInptValue() {
     //console.log(inputValue)
     pegarApi(inputValue)
 
-    function pegarApi(inputValue) {
-        let corpo = fetch(`${api} + ${inputValue}`).then(Response => Response.json())
+    async function pegarApi(inputValue) {
+        let corpo = await fetch(`${api} + ${inputValue}`).then(Response => Response.json())
         //console.log(corpo)
         popularTela(corpo)
     }
 
     function popularTela(corpo) {
         console.log(corpo)
-        //let corpo = corpo = " ";
-        document.querySelector("#num0").innerHTML = corpo.object.dezenas[0];
+        document.querySelector("#num0").innerHTML = corpo.dezenas[0];
         document.querySelector("#num1").innerHTML = corpo.dezenas[1];
         document.querySelector("#num2").innerHTML = corpo.dezenas[2];
         document.querySelector("#num3").innerHTML = corpo.dezenas[3];
@@ -35,7 +34,7 @@ function chamarInptValue() {
         document.querySelector(".section #nome").innerHTML = corpo.estadosPremiados[0].nome;
         document.querySelector(".section #uf").innerHTML = corpo.estadosPremiados[0].uf;
         document.querySelector(".section footer").innerHTML = corpo.concurso;
-        }
+    }
        
     }
 
