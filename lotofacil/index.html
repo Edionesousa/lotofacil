@@ -15,14 +15,14 @@
 </head>
 
 <body>
-    <header>
-        <div class="title">
-            <h1>Resultado Lotofacil</h1>
-        </div>
-    </header>
     <div class="body">
+        <header>
+            <div class="title">
+                <h1>Resultado Lotofacil</h1>
+            </div>
+        </header>
         <section class="section">
-            <input class="input" type="number" id="pesquisar" placeholder="Digite o concurso" value="2850">
+            <input class="input" type="number" id="pesquisar" placeholder="Digite o concurso">
             <button class="input" onclick="chamarInptValue()">pesquisar</button>
         </section>
         <section class="section">
@@ -84,31 +84,71 @@
                 <div id="uf">UF</div>
             </section>
         </section>
+        <footer class="section">
+            <section>EDIONE</section>
+        </footer>
     </div>
-    <footer class="section">
-        <section>EDIONE</section>
-    </footer>
-
 </body>
 
 </html>
-
 <script>
 
+const api = "https://loteriascaixa-api.herokuapp.com/api/lotofacil/"
+function chamarInptValue() {
+    let inputValue = document.querySelector("#pesquisar").value;
+    //console.log(inputValue)
+    pegarApi(inputValue)
 
+    async function pegarApi(inputValue) {
+        let corpo = await fetch(`${api} + ${inputValue}`).then(Response => Response.json())
+        //console.log(corpo)
+        popularTela(corpo)
+    }
+    function popularTela(corpo) {
+        console.log(corpo)
+        document.querySelector("#num0").innerHTML = corpo.dezenas[0];
+        document.querySelector("#num1").innerHTML = corpo.dezenas[1];
+        document.querySelector("#num2").innerHTML = corpo.dezenas[2];
+        document.querySelector("#num3").innerHTML = corpo.dezenas[3];
+        document.querySelector("#num4").innerHTML = corpo.dezenas[4];
+        document.querySelector("#num5").innerHTML = corpo.dezenas[5];
+        document.querySelector("#num6").innerHTML = corpo.dezenas[6];
+        document.querySelector("#num7").innerHTML = corpo.dezenas[7];
+        document.querySelector("#num8").innerHTML = corpo.dezenas[8];
+        document.querySelector("#num9").innerHTML = corpo.dezenas[9];
+        document.querySelector("#num10").innerHTML = corpo.dezenas[10];
+        document.querySelector("#num11").innerHTML = corpo.dezenas[11];
+        document.querySelector("#num12").innerHTML = corpo.dezenas[12];
+        document.querySelector("#num13").innerHTML = corpo.dezenas[13];
+        document.querySelector("#num14").innerHTML = corpo.dezenas[14];
+        document.querySelector(".section #nome").innerHTML = corpo.estadosPremiados[0].nome;
+        document.querySelector(".section #uf").innerHTML = corpo.estadosPremiados[0].uf;
+        document.querySelector(".section footer").innerHTML = corpo.concurso;
+    }
+    }
+    async function pegarApi(inputValue) {
+        let corpo = await fetch(`${api} + ${inputValue.value}`).then(Response => Response.json())
+        //console.log(corpo)
+        popularTela(corpo)
+    }
 </script>
 <style>
-    *{font-family: 'Dancing Script', cursive;
-font-family: 'Geologica', sans-serif;
-font-family: 'Libre Baskerville', serif;
-font-family: 'Noto Serif', serif;
-}
-body{
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    max-width: 450px;
+    * {
+        font-family: 'Dancing Script', cursive;
+        font-family: 'Geologica', sans-serif;
+        font-family: 'Libre Baskerville', serif;
+        font-family: 'Noto Serif', serif;
+    }
+
+    .body {
+        display: flexbox;
+        justify-content: center;
+        padding: 10px;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+      
+    }
 
     .estado {
         font-size: 40px;
@@ -147,7 +187,6 @@ body{
     }
 
     .resultado {
-        display: flex;
         background-color: purple;
         color: whitesmoke;
         text-shadow: rgba(0, 0, 0, 0.574) 10px 10px 10px;
@@ -171,7 +210,7 @@ body{
 
     }
 
-    form .section {
+    .section {
         display: flex;
         flex-wrap: wrap;
         width: 100%;
@@ -218,7 +257,7 @@ body{
         font-size: 40px;
         text-shadow: rgba(0, 0, 0, 0.559) 10px 10px 10px;
         text-align: center;
-        padding: 30px;
+        padding: 20px;
         text-transform: uppercase;
         height: auto;
         margin: 3px;
@@ -230,16 +269,8 @@ body{
         max-width: 100%;
         height: 50%;
     }
-
-    body {
-        display: grid;
-        background-color: white;
-        justify-content: center;
-    }
-
     * {
         padding: 0;
         margin: 0;
     }
-}
 </style>

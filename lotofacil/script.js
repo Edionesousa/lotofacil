@@ -35,10 +35,13 @@ function chamarInptValue() {
         document.querySelector(".section #uf").innerHTML = corpo.estadosPremiados[0].uf;
         document.querySelector(".section footer").innerHTML = corpo.concurso;
     }
-       
     }
+    async function pegarApi(inputValue) {
+        let corpo = await fetch(`${api} + ${inputValue.value}`).then(Response => Response.json())
+        //console.log(corpo)
+        popularTela(corpo)
 
-
+    }
 
 
 
