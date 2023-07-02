@@ -1,45 +1,47 @@
 
-
-
-//const Api = `https://loteriascaixa-api.herokuapp.com/api/lotofacil/${pesquisar}/`
-
+const api = "https://loteriascaixa-api.herokuapp.com/api/lotofacil/"
 
 
 
+function chamarInptValue() {
+    let inputValue = document.querySelector("#pesquisar").value;
+    //console.log(inputValue)
+    pegarApi(inputValue)
 
- function pesquisar(){
-   const valor = document.querySelector("#pesquisar").value;
+    async function pegarApi(inputValue) {
+        let corpo = await fetch(`${api} + ${inputValue}`).then(Response => Response.json())
+        //console.log(corpo)
+        popularTela(corpo)
+    }
 
-   console.log()
+    function popularTela(corpo) {
+        console.log(corpo)
+        document.querySelector("#num0").innerHTML = corpo.dezenas[0];
+        document.querySelector("#num1").innerHTML = corpo.dezenas[1];
+        document.querySelector("#num2").innerHTML = corpo.dezenas[2];
+        document.querySelector("#num3").innerHTML = corpo.dezenas[3];
+        document.querySelector("#num4").innerHTML = corpo.dezenas[4];
+        document.querySelector("#num5").innerHTML = corpo.dezenas[5];
+        document.querySelector("#num6").innerHTML = corpo.dezenas[6];
+        document.querySelector("#num7").innerHTML = corpo.dezenas[7];
+        document.querySelector("#num8").innerHTML = corpo.dezenas[8];
+        document.querySelector("#num9").innerHTML = corpo.dezenas[9];
+        document.querySelector("#num10").innerHTML = corpo.dezenas[10];
+        document.querySelector("#num11").innerHTML = corpo.dezenas[11];
+        document.querySelector("#num12").innerHTML = corpo.dezenas[12];
+        document.querySelector("#num13").innerHTML = corpo.dezenas[13];
+        document.querySelector("#num14").innerHTML = corpo.dezenas[14];
+        document.querySelector(".section #nome").innerHTML = corpo.estadosPremiados[0].nome;
+        document.querySelector(".section #uf").innerHTML = corpo.estadosPremiados[0].uf;
+        document.querySelector(".section footer").innerHTML = corpo.concurso;
+    }
+    }
+    async function pegarApi(inputValue) {
+        let corpo = await fetch(`${api} + ${inputValue.value}`).then(Response => Response.json())
+        //console.log(corpo)
+        popularTela(corpo)
 
-}
+    }
 
 
 
-/*async function popularTela(click){
-    await fetch(Api).then(response => {
-            (response.json()).then(body => {
-                let = document.querySelector("#num0").innerHTML = body.dezenas[0];
-                let = document.querySelector("#num1").innerHTML = body.dezenas[1];
-                let = document.querySelector("#num2").innerHTML = body.dezenas[2];
-                let = document.querySelector("#num3").innerHTML = body.dezenas[3];
-                let = document.querySelector("#num4").innerHTML = body.dezenas[4];
-                let = document.querySelector("#num5").innerHTML = body.dezenas[5];
-                let = document.querySelector("#num6").innerHTML = body.dezenas[6];
-                let = document.querySelector("#num7").innerHTML = body.dezenas[7];
-                let = document.querySelector("#num8").innerHTML = body.dezenas[8];
-                let = document.querySelector("#num9").innerHTML = body.dezenas[9];
-                let = document.querySelector("#num10").innerHTML = body.dezenas[10];
-                let = document.querySelector("#num11").innerHTML = body.dezenas[11];
-                let = document.querySelector("#num12").innerHTML = body.dezenas[12];
-                let = document.querySelector("#num13").innerHTML = body.dezenas[13];
-                let = document.querySelector("#num14").innerHTML = body.dezenas[14];
-                
-                //Estado ganhador
-                document.querySelector(".section #nome").innerHTML = body.estadosPremiados[0].nome;
-                document.querySelector(".section #uf").innerHTML = body.estadosPremiados[0].uf;
-                document.querySelector(".section footer").innerHTML = body.concurso;
-                body = console.log(body)
-            })
-})
-*/

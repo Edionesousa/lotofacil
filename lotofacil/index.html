@@ -5,96 +5,146 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Geologica:wght@100;200;300;400;500&family=Libre+Baskerville:ital,wght@0,700;1,400&family=Noto+Serif:ital,wght@0,400;1,400;1,700&display=swap"
+        rel="stylesheet">
     <script src="script.js" defer></script>
     <title>Lotofacil</title>
 </head>
 
-<body>
-    <header>
-        <div class="title">
-            <h1>Resultado Lotofacil</h1>
-        </div>
-    </header>
+<body class="body">
     <div class="body">
-        <form class="section">
+        <header>
+            <div class="title">
+                <h1>Resultado Lotofacil</h1>
+            </div>
+        </header>
+        <section class="section">
             <input class="input" type="number" id="pesquisar" placeholder="Concurso">
-            <button class="input" onclick="pesquisar()">pesquisar</button>
-        </form>
+            <button class="input" onclick="chamarInptValue()">pesquisar</button>
+        </section>
+        <section class="section">
+            <button class="button" id="atual">Ultimo concurso</button>
+        </section>
 
         <section class="section">
             <div class="resultado" id="num0">
-                <p>0</p>
+                <p></p>
             </div>
             <div class="resultado" id="num1">
-                <p>1</p>
+                <p></p>
             </div>
             <div class="resultado" id="num2">
-                <p>2</p>
+                <p></p>
             </div>
             <div class="resultado" id="num3">
-                <p>3</p>
+                <p></p>
             </div>
             <div class="resultado" id="num4">
-                <p>4</p>
+                <p></p>
             </div>
             <div class="resultado" id="num5">
-                <p>5</p>
+                <p></p>
             </div>
             <div class="resultado" id="num6">
-                <p>6</p>
+                <p></p>
             </div>
             <div class="resultado" id="num7">
-                <p>7</p>
+                <p></p>
             </div>
             <div class="resultado" id="num8">
-                <p>8</p>
+                <p></p>
             </div>
             <div class="resultado" id="num9">
-                <p>9</p>
+                <p></p>
             </div>
             <div class="resultado" id="num10">
-                <p>10</p>
+                <p></p>
             </div>
             <div class="resultado" id="num11">
-                <p>11</p>
+                <p></p>
             </div>
             <div class="resultado" id="num12">
-                <p>12</p>
+                <p></p>
             </div>
             <div class="resultado" id="num13">
-                <p>13</p>
+                <p></p>
             </div>
             <div class="resultado" id="num14">
-                <p>14</p>
+                <p></p>
             </div>
         </section>
         <!--Estado ganhador-->
-        <section class="section pontos">
-            <section class="section">
-                <div id="nome">Estado </div>
-                <div id="uf">UF</div>
+        <section class="section">
+            <section>
+                <h3 class="h3">Estado ganhador</h3>
+                <div class="h3" id="nome">Estado </div>
+                <div class="h3" id="uf">UF</div>
             </section>
         </section>
+        <footer class="section">
+            <section>EDIONE</section>
+        </footer>
     </div>
-    <footer class="section">
-        <section>EDIONE</section>
-    </footer>
-
 </body>
 
 </html>
-
 <script>
 
+    const api = "https://loteriascaixa-api.herokuapp.com/api/lotofacil/"
+    function chamarInptValue() {
+        let inputValue = document.querySelector("#pesquisar").value;
+        //console.log(inputValue)
+        pegarApi(inputValue)
 
+        async function pegarApi(inputValue) {
+            let corpo = await fetch(`${api} + ${inputValue}`).then(Response => Response.json())
+            //console.log(corpo)
+            popularTela(corpo)
+        }
+        function popularTela(corpo) {
+            console.log(corpo)
+            document.querySelector("#num0").innerHTML = corpo.dezenas[0];
+            document.querySelector("#num1").innerHTML = corpo.dezenas[1];
+            document.querySelector("#num2").innerHTML = corpo.dezenas[2];
+            document.querySelector("#num3").innerHTML = corpo.dezenas[3];
+            document.querySelector("#num4").innerHTML = corpo.dezenas[4];
+            document.querySelector("#num5").innerHTML = corpo.dezenas[5];
+            document.querySelector("#num6").innerHTML = corpo.dezenas[6];
+            document.querySelector("#num7").innerHTML = corpo.dezenas[7];
+            document.querySelector("#num8").innerHTML = corpo.dezenas[8];
+            document.querySelector("#num9").innerHTML = corpo.dezenas[9];
+            document.querySelector("#num10").innerHTML = corpo.dezenas[10];
+            document.querySelector("#num11").innerHTML = corpo.dezenas[11];
+            document.querySelector("#num12").innerHTML = corpo.dezenas[12];
+            document.querySelector("#num13").innerHTML = corpo.dezenas[13];
+            document.querySelector("#num14").innerHTML = corpo.dezenas[14];
+            document.querySelector(".section #nome").innerHTML = corpo.estadosPremiados[0].nome;
+            document.querySelector(".section #uf").innerHTML = corpo.estadosPremiados[0].uf;
+            document.querySelector(".section footer").innerHTML = corpo.concurso;
+        }
+    }
+    async function pegarApi(inputValue) {
+        let corpo = await fetch(`${api} + ${inputValue.value}`).then(Response => Response.json())
+        //console.log(corpo)
+        popularTela(corpo)
+    }
 </script>
 <style>
+    * {
+        font-family: 'Dancing Script', cursive;
+        font-family: 'Geologica', sans-serif;
+        font-family: 'Libre Baskerville', serif;
+        font-family: 'Noto Serif', serif;
+    }
 
-    input button {
+    button {
         background-color: purple;
         text-transform: uppercase;
         color: whitesmoke;
-        padding: 10px;
+        padding: 3px;
         width: 120px;
         cursor: pointer;
     }
@@ -106,7 +156,7 @@
     }
 
     .input {
-        width: 100%;
+        width: 150px;
         height: 50px;
         border: none;
         border-radius: 3px;
@@ -115,24 +165,20 @@
         font-size: 20px;
         margin: 3px;
         text-shadow: purple 10px 10px 20px;
-        outline: none;
-
-
     }
 
     .resultado {
         display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
         background-color: purple;
         color: whitesmoke;
         text-shadow: rgba(0, 0, 0, 0.574) 10px 10px 10px;
         box-shadow: rgba(0, 0, 0, 0.649) 10px -1px 5px;
         margin-left: 3px;
         border-radius: 50%;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
         font-size: 40px;
-        font-style: italic;
         font-weight: bolder;
         width: 70px;
         height: 70px;
@@ -141,14 +187,18 @@
     }
 
     p {
+        text-shadow: black 10px 10px 10px;
         border-color: whitesmoke 3px solid;
+
+
 
     }
 
-    form .section {
+    .section {
         display: flex;
         flex-wrap: wrap;
-        width: 100%;
+        color: purple;
+        width: 85%;
         justify-content: center;
         text-align: center;
         align-items: center;
@@ -162,25 +212,8 @@
 
 
     }
-    h3{
-        display: flex;
-        min-width: 300px;
-        max-width: 95%;
-        font-style: normal;
-        justify-content: center;
-        color: purple;
-        font-weight: bolder;
-        font-size: 30px;
-        text-shadow: rgba(0, 0, 0, 0.559) 10px 10px 10px;
-        text-align: center;
-        text-transform: uppercase;
-        height: auto;
-        margin: 3px;
-       padding: 5px;
-       margin: 3px; 
-    }
 
-    h1{
+    h1 {
         display: flex;
         min-width: 300px;
         max-width: 95%;
@@ -196,6 +229,10 @@
         height: auto;
         margin: 3px;
 
+    }
+
+    .h3 {
+        font: 40px;
     }
 
     .title {
