@@ -1,29 +1,42 @@
 
-var api = "https://loteriascaixa-api.herokuapp.com/api/lotofacil"
+var api = "https://loteriascaixa-api.herokuapp.com/api/lotofacil/"
+var ultimoApi = "https://loteriascaixa-api.herokuapp.com/api/lotofacil/?"
+   let c =  document.querySelector(concurso).value;
+    console.log(c)
 
 
 function chamarInptValue(api) {
     let inputValue = document.querySelector("#pesquisar").value;
+    let spanConcuros =  document.querySelector("#spanConcurso").vlaue;
     //console.log(inputValue)
     pegarApi(inputValue)
 
     async function pegarApi(inputValue) {
-        let corpo = await fetch(`${api} + ${inputValue.corpo.lotofacil}`).then(Response => Response.json())
+        let corpo = await fetch(`${api} + ${inputValue}`).then(Response => Response.json())
         popularTela(corpo)
+        //console.log(corpo)
+    }
+
+}
+// pegar dados do ultimo concurso
+async function ultimoConcurso(ultimoApi) {
+    let ultimo = await fetch(`${ultimoApi}`).then(Response => Response.json())
+    telaUltimo(ultimo)
+    
+    
+    // legar tela ultimo concurso
+    
+    function telaUltimo(ultimo) {
+        let concurso = document.querySelector("#span").innerHTML = ultimo[0].concurso;
+            //console.log([ultimo[0].concurso])
+            //console.log(concurso)
+        
     }
 }
 
-    // pegar dados do ultimo concurso
-    async function ultimoConcurso(api) {
-        let ultimo = await fetch(`${api}`).then(Response => Response.json())
-        //console.log(ultimo)
-        popularTela(ultimo)
-
-    }
-
-
 function popularTela(corpo) {
-    // console.log(corpo)
+
+    //console.log(corpo)
     document.querySelector("#num0").innerHTML = corpo.dezenas[0];
     document.querySelector("#num1").innerHTML = corpo.dezenas[1];
     document.querySelector("#num2").innerHTML = corpo.dezenas[2];
@@ -43,5 +56,4 @@ function popularTela(corpo) {
     document.querySelector(".section #uf").innerHTML = corpo.estadosPremiados[0].uf;
     document.querySelector(".section footer").innerHTML = corpo.concurso;
 }
-
 
