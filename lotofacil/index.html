@@ -10,7 +10,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Geologica:wght@100;200;300;400;500&family=Libre+Baskerville:ital,wght@0,700;1,400&family=Noto+Serif:ital,wght@0,400;1,400;1,700&display=swap"
         rel="stylesheet">
-    <script src="script.js" defer></script>
+    <script defer src="script.js"></script>
     <title>Lotofacil</title>
 </head>
 
@@ -23,16 +23,19 @@
         </header>
         <section class="section">
             <input class="input" type="number" id="pesquisar" placeholder="Concurso">
-            <button class="input" onclick="chamarInptValue(api)">pesquisar</button>
+            <button class="input" onclick="chamarInptValue()">pesquisar</button>
         </section>
         <section class="section">
-            <button class="button" onclick="ultimoConcurso(ultimoApi)">Ultimo Concurso</button>
-            <section class="input" id="span"></section>
-         
-          
+            <button class="input" onclick="ultimoConcurso(ultimoApi)">Ultimo Concurso</button>
+
+            <div><span>
+                    <section class="input" id="span"></section>
+                </span></div>
+
         </section>
 
-        <section class="section">
+        <!--Resultados-->
+        <section id="sectionRes" class="sectionResultado">
             <div class="resultado" id="num0">
                 <p></p>
             </div>
@@ -83,9 +86,26 @@
         <section class="section">
             <section>
                 <h3 class="h3">Estado ganhador</h3>
-                <div class="h3" id="nome">Estado </div>
-                <div class="h3" id="uf">UF</div>
+                <div class="h3" id="nomeId0"></div>
+                <span id="ufId0"></span>
+                <div class="h3" id="nomeId1"></div>
+                <div class="h3" id="ufId1"></div>
+                <div class="h3" id="nomeId2"></div>
+                <div class="h3" id="ufId2"></div>
+                <div class="h3" id="nomeId3"></div>
+                <div class="h3" id="ufId3"></div>
+                <div class="h3" id="nomeId4"></div>
+                <div class="h3" id="ufId4"></div>
             </section>
+        </section>
+        <section class="section">
+            <div id="premios"></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            Premios
         </section>
         <footer class="section">
             <section>EDIONE</section>
@@ -99,122 +119,5 @@
 
 </script>
 <style>
-    * {
-        font-family: 'Dancing Script', cursive;
-        font-family: 'Geologica', sans-serif;
-        font-family: 'Libre Baskerville', serif;
-        font-family: 'Noto Serif', serif;
-    }
 
-    button {
-        background-color: purple;
-        text-transform: uppercase;
-        color: whitesmoke;
-        padding: 3px;
-        width: 120px;
-        cursor: pointer;
-    }
-
-    button:hover {
-        background-color: rgba(128, 0, 128, 0.759);
-        box-shadow: rgba(0, 0, 0, 0.649) 10px 10px 20px;
-
-    }
-
-    .input {
-        width: 150px;
-        height: 50px;
-        border: none;
-        border-radius: 3px;
-        padding: 3px;
-        text-align: center;
-        font-size: 20px;
-        margin: 3px;
-        text-shadow: purple 10px 10px 20px;
-    }
-
-    .resultado {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        background-color: purple;
-        color: whitesmoke;
-        text-shadow: rgba(0, 0, 0, 0.574) 10px 10px 10px;
-        box-shadow: rgba(0, 0, 0, 0.649) 10px -1px 5px;
-        margin-left: 3px;
-        border-radius: 50%;
-        font-size: 40px;
-        font-weight: bolder;
-        width: 70px;
-        height: 70px;
-        padding: 3px;
-        margin: 5px;
-    }
-
-    p {
-        text-shadow: black 10px 10px 10px;
-        border-color: whitesmoke 3px solid;
-
-
-
-    }
-
-    .section {
-        display: flex;
-        flex-wrap: wrap;
-        color: purple;
-        width: 85%;
-        justify-content: center;
-        text-align: center;
-        align-items: center;
-        background-color: rgba(128, 0, 128, 0.125);
-        box-shadow: rgba(0, 0, 0, 0.649) 10px 10px 10px;
-        border-radius: 10px;
-        padding: 20px;
-        margin: 20px;
-        columns: auto;
-        gap: 4px;
-
-
-    }
-
-    h1 {
-        display: flex;
-        min-width: 300px;
-        max-width: 95%;
-        font-style: normal;
-        justify-content: center;
-        color: purple;
-        font-weight: bolder;
-        font-size: 40px;
-        text-shadow: rgba(0, 0, 0, 0.559) 10px 10px 10px;
-        text-align: center;
-        padding: 30px;
-        text-transform: uppercase;
-        height: auto;
-        margin: 3px;
-
-    }
-
-    .h3 {
-        font: 40px;
-    }
-
-    .title {
-        min-width: 300px;
-        max-width: 100%;
-        height: 50%;
-    }
-
-    body {
-        display: grid;
-        background-color: white;
-        justify-content: center;
-    }
-
-    * {
-        padding: 0;
-        margin: 0;
-    }
 </style>
