@@ -1,19 +1,23 @@
 
 var api = "https://loteriascaixa-api.herokuapp.com/api/lotofacil/"
 var ultimoApi = "https://loteriascaixa-api.herokuapp.com/api/lotofacil/?"
-   let c =  document.querySelector(concurso).value;
-    console.log(c)
+
+
+
 
 
 function chamarInptValue(api) {
     let inputValue = document.querySelector("#pesquisar").value;
-    let spanConcuros =  document.querySelector("#spanConcurso").vlaue;
+    //let spanConcuros =  document.querySelector("#spanConcurso").vlaue;
     //console.log(inputValue)
     pegarApi(inputValue)
+  
+
 
     async function pegarApi(inputValue) {
         let corpo = await fetch(`${api} + ${inputValue}`).then(Response => Response.json())
         popularTela(corpo)
+
         //console.log(corpo)
     }
 
@@ -22,21 +26,13 @@ function chamarInptValue(api) {
 async function ultimoConcurso(ultimoApi) {
     let ultimo = await fetch(`${ultimoApi}`).then(Response => Response.json())
     telaUltimo(ultimo)
-    
-    
-    // legar tela ultimo concurso
-    
-    function telaUltimo(ultimo) {
-        let concurso = document.querySelector("#span").innerHTML = ultimo[0].concurso;
-            //console.log([ultimo[0].concurso])
-            //console.log(concurso)
-        
+    //console.log(ultimo)
+
+
     }
-}
+    /**premios */
 
 function popularTela(corpo) {
-
-    //console.log(corpo)
     document.querySelector("#num0").innerHTML = corpo.dezenas[0];
     document.querySelector("#num1").innerHTML = corpo.dezenas[1];
     document.querySelector("#num2").innerHTML = corpo.dezenas[2];
@@ -52,8 +48,22 @@ function popularTela(corpo) {
     document.querySelector("#num12").innerHTML = corpo.dezenas[12];
     document.querySelector("#num13").innerHTML = corpo.dezenas[13];
     document.querySelector("#num14").innerHTML = corpo.dezenas[14];
-    document.querySelector(".section #nome").innerHTML = corpo.estadosPremiados[0].nome;
-    document.querySelector(".section #uf").innerHTML = corpo.estadosPremiados[0].uf;
-    document.querySelector(".section footer").innerHTML = corpo.concurso;
+    document.querySelector(".section #nomeId0").innerHTML = corpo.estadosPremiados[0].nome;
+    document.querySelector(".section #ufId0").innerHTML = corpo.estadosPremiados[0].uf;
+
+    document.querySelector(".section #nomeId1").innerHTML = corpo.estadosPremiados[1].nome;
+    document.querySelector(".section #ufId1").innerHTML = corpo.estadosPremiados[1].uf;
+
+    document.querySelector(".section #nomeId2").innerHTML = corpo.estadosPremiados[2].nome;
+    document.querySelector(".section #ufId2").innerHTML = corpo.estadosPremiados[2].uf;
+
+    document.querySelector(".section #nomeId3").innerHTML = corpo.estadosPremiados[3].nome;
+    document.querySelector(".section #ufId3").innerHTML = corpo.estadosPremiados[3].uf;
+
+    document.querySelector(".section #nomeId4").innerHTML = corpo.estadosPremiados[4].nome;
+    document.querySelector(".section #ufId4").innerHTML = corpo.estadosPremiados[4].uf;
+
+    document.querySelector(".section #nomeId5").innerHTML = corpo.estadosPremiados[5].nome;
+    document.querySelector(".section #ufId5").innerHTML = corpo.estadosPremiados[5].uf;
 }
 
