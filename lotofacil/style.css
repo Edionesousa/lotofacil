@@ -20,16 +20,22 @@ button:hover {
 
 }
 
-.input {
+.input{
+    display: flex;
     width: 150px;
     height: 100%;
     border: none;
     border-radius: 3px;
     padding: 10px;
+    padding: 3px;
+    justify-content: center;
     text-align: center;
+    align-items: center;
     font-size: 20px;
     margin: 3px;
     text-shadow: purple 10px 10px 20px;
+    text-shadow:purple 10px 10px 20px;
+    
 }
 
 .resultado {
