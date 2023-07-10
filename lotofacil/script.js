@@ -1,41 +1,33 @@
 
-var api = "https://loteriascaixa-api.herokuapp.com/api/lotofacil/"
-var ultimoApi = "https://loteriascaixa-api.herokuapp.com/api/lotofacil/?"
-   let c =  document.querySelector(concurso).value;
-    console.log(c)
 
+
+
+const api = "https://loteriascaixa-api.herokuapp.com/api/lotofacil/";
 
 function chamarInptValue(api) {
     let inputValue = document.querySelector("#pesquisar").value;
-    let spanConcuros =  document.querySelector("#spanConcurso").vlaue;
-    //console.log(inputValue)
-    pegarApi(inputValue)
+    //console.log(inputValue);
+    pegarApi(inputValue);
 
     async function pegarApi(inputValue) {
-        let corpo = await fetch(`${api} + ${inputValue}`).then(Response => Response.json())
-        popularTela(corpo)
-        //console.log(corpo)
+        let corpo = await fetch(`${api} + ${inputValue}`).then(Response => Response.json());
+        console.log(corpo);
+        popularTela(corpo);
     }
 
 }
 // pegar dados do ultimo concurso
-async function ultimoConcurso(ultimoApi) {
-    let ultimo = await fetch(`${ultimoApi}`).then(Response => Response.json())
-    telaUltimo(ultimo)
-    
-    
-    // legar tela ultimo concurso
-    
-    function telaUltimo(ultimo) {
-        let concurso = document.querySelector("#span").innerHTML = ultimo[0].concurso;
-            //console.log([ultimo[0].concurso])
-            //console.log(concurso)
-        
-    }
+
+    async function ultimoConcurso() {
+        //let ultimo = await fetch(`${api}`).then(Response => Response.json());
+        let corpoUltimo = await fetch(`${api} + "?"`).then(Response => Response.json());
+        console.log(apiValaue);
+        telaUltimo(ultimo);
+
 }
 
-function popularTela(corpo) {
 
+function popularTela(corpo) {
     //console.log(corpo)
     document.querySelector("#num0").innerHTML = corpo.dezenas[0];
     document.querySelector("#num1").innerHTML = corpo.dezenas[1];
@@ -52,8 +44,15 @@ function popularTela(corpo) {
     document.querySelector("#num12").innerHTML = corpo.dezenas[12];
     document.querySelector("#num13").innerHTML = corpo.dezenas[13];
     document.querySelector("#num14").innerHTML = corpo.dezenas[14];
-    document.querySelector(".section #nome").innerHTML = corpo.estadosPremiados[0].nome;
-    document.querySelector(".section #uf").innerHTML = corpo.estadosPremiados[0].uf;
-    document.querySelector(".section footer").innerHTML = corpo.concurso;
+    document.querySelector(".section #nome0").innerHTML = corpo.estadosPremiados[0].nome;
+    document.querySelector(".section #uf0").innerHTML = corpo.estadosPremiados[0].uf;
+    document.querySelector(".section #nome1").innerHTML = corpo.estadosPremiados[1].nome;
+    document.querySelector(".section #uf1").innerHTML = corpo.estadosPremiados[1].uf;
+    document.querySelector(".section #nome2").innerHTML = corpo.estadosPremiados[2].nome;
+    document.querySelector(".section #uf2").innerHTML = corpo.estadosPremiados[2].uf;
+    document.querySelector(".section #nome3").innerHTML = corpo.estadosPremiados[3].nome;
+    document.querySelector(".section #uf3").innerHTML = corpo.estadosPremiados[3].uf;
+    document.querySelector(".section #nome4").innerHTML = corpo.estadosPremiados[4].nome;
+    document.querySelector(".section #uf4").innerHTML = corpo.estadosPremiados[4].uf;
 }
 
