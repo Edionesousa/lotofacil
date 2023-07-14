@@ -98,6 +98,8 @@ body{
     justify-content: center;
 }
 *{
+font-family: 'Libre Baskerville', serif;
+font-family: 'Noto Serif', serif;
     padding: 0;
     margin: 0;
 }

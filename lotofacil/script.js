@@ -1,34 +1,32 @@
 
 
-
-
-const api = "https://loteriascaixa-api.herokuapp.com/api/lotofacil/";
+var BtnValue = document.querySelector("#ultimoConcurso").value;
+var  api = "https://loteriascaixa-api.herokuapp.com/api/lotofacil/";
 
 function chamarInptValue(api) {
-    let inputValue = document.querySelector("#pesquisar").value;
+    const inputValue = document.querySelector("#pesquisar").value;
     //console.log(inputValue);
     pegarApi(inputValue);
-
-    async function pegarApi(inputValue) {
-        let corpo = await fetch(`${api} + ${inputValue}`).then(Response => Response.json());
-        console.log(corpo);
-        popularTela(corpo);
-    }
-
 }
-// pegar dados do ultimo concurso
 
-    async function ultimoConcurso() {
-        //let ultimo = await fetch(`${api}`).then(Response => Response.json());
-        let corpoUltimo = await fetch(`${api} + "?"`).then(Response => Response.json());
-        console.log(apiValaue);
-        telaUltimo(ultimo);
-
+async function pegarApi(inputValue) {
+    const corpo = await fetch(`${api} + ${inputValue}`).then(Response => Response.json());
+    //let = console.log(corpo)
+    popularTela(corpo);
+    return;
 }
+
+async function ultimoConcurso(api) {
+    let corpo = await fetch(api).then(Response => Response.json());
+    corpo = corpo[0]
+    popularTela(corpo)
+}
+console.log(corpo);
 
 
 function popularTela(corpo) {
     //console.log(corpo)
+    document.querySelector("#span").innerHTML = corpo.concurso;
     document.querySelector("#num0").innerHTML = corpo.dezenas[0];
     document.querySelector("#num1").innerHTML = corpo.dezenas[1];
     document.querySelector("#num2").innerHTML = corpo.dezenas[2];
@@ -55,4 +53,5 @@ function popularTela(corpo) {
     document.querySelector(".section #nome4").innerHTML = corpo.estadosPremiados[4].nome;
     document.querySelector(".section #uf4").innerHTML = corpo.estadosPremiados[4].uf;
 }
+
 

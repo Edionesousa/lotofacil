@@ -22,16 +22,16 @@
             </div>
         </header>
         <section class="section">
-            <input class="input" type="number" id="pesquisar" placeholder="Concurso">
+            <input class="input" type="number" id="pesquisar" placeholder="Concurso" value="">
             <button class="input" onclick="chamarInptValue(api)">pesquisar</button>
         </section>
         <section class="section">
-            <button class="button" onclick="ultimoConcurso(api)">Ultimo Concurso</button>
+            <button class="button" id="ultimoConcurso" onclick=" ultimoConcurso(api)" value="" >Ultimo Concurso</button>
             <section class="input" id="span"></section>
          
           
         </section>
-
+        
         <section class="section">
             <div class="resultado" id="num0">
                 <p></p>
@@ -106,6 +106,7 @@
 
 
 </script>
-<style>
 
+<style>
+    
 </style>
