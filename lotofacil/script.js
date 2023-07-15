@@ -1,13 +1,25 @@
 
 
 var BtnValue = document.querySelector("#ultimoConcurso").value;
-var  api = "https://loteriascaixa-api.herokuapp.com/api/lotofacil/";
+var api = "https://loteriascaixa-api.herokuapp.com/api/lotofacil/";
 
 function chamarInptValue(api) {
-    const inputValue = document.querySelector("#pesquisar").value;
-    //console.log(inputValue);
-    pegarApi(inputValue);
+    let inputValue = document.querySelector("#pesquisar").value;
+
+    if (let = pesquisar = " " || inputValue.value == undefined) {
+       let = ( alert("Digite um concurso valido!"))
+       ipnutUndefined(undefined)
+
+    }
+    function ipnutUndefined(undefined){
+        document.querySelector("#span").innerHTML = let = `<p class="section">Concurso invalido!</p>`
+        return;
+    }
+    function inputValido(){
+        pegarApi(inputValue)
+    }
 }
+
 
 async function pegarApi(inputValue) {
     const corpo = await fetch(`${api} + ${inputValue}`).then(Response => Response.json());
