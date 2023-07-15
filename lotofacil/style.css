@@ -34,7 +34,7 @@ button:hover{
     background-color: purple;
     color: whitesmoke;
     text-shadow: rgba(0, 0, 0, 0.574) 10px 10px 10px;
-    box-shadow: rgba(0, 0, 0, 0.649) 10px -1px 5px;
+    box-shadow: rgba(0, 0, 0, 0.308) 10px -1px 50px;
     margin-left: 3px;
     border-radius: 50%;
     font-size: 40px;
@@ -50,6 +50,20 @@ p{
     
 
 
+}
+.erroInputVazio{
+    text-transform: uppercase;
+    text-shadow: none;
+    display: flex;
+    flex-wrap:wrap;
+    width: 300px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    color: rgba(255, 0, 0, 0.664);
+    background-color:rgba(255, 255, 0, 0.486);
+    border-radius: 10px;
+    gap: 4px;
 }
 .section{
     display: flex;

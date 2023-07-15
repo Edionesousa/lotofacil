@@ -3,23 +3,26 @@
 var BtnValue = document.querySelector("#ultimoConcurso").value;
 var api = "https://loteriascaixa-api.herokuapp.com/api/lotofacil/";
 
+
+
 function chamarInptValue(api) {
     let inputValue = document.querySelector("#pesquisar").value;
 
-    if (let = pesquisar = " " || inputValue.value == undefined) {
-       let = ( alert("Digite um concurso valido!"))
-       ipnutUndefined(undefined)
-
-    }
-    function ipnutUndefined(undefined){
-        document.querySelector("#span").innerHTML = let = `<p class="section">Concurso invalido!</p>`
+    if (let = pesquisar.value == []) {
+    let = alert("Digite um concurso valido!")
+    ipnutUndefined(undefined)
+        //console.log([ ])
+    } else if(let = pesquisar.value != []){
+        pegarApi(inputValue)
         return;
     }
-    function inputValido(){
+
+    function ipnutUndefined(undefined){
+        let = document.querySelector("#span").innerHTML = let = `<p class="erroInputVazio">Concurso invalido!</p>`
+        return;
         pegarApi(inputValue)
     }
 }
-
 
 async function pegarApi(inputValue) {
     const corpo = await fetch(`${api} + ${inputValue}`).then(Response => Response.json());
@@ -27,13 +30,12 @@ async function pegarApi(inputValue) {
     popularTela(corpo);
     return;
 }
-
+ultimoConcurso(api)
 async function ultimoConcurso(api) {
     let corpo = await fetch(api).then(Response => Response.json());
     corpo = corpo[0]
     popularTela(corpo)
 }
-console.log(corpo);
 
 
 function popularTela(corpo) {
