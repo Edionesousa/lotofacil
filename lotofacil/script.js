@@ -4,21 +4,20 @@ var BtnValue = document.querySelector("#ultimoConcurso").value;
 var api = "https://loteriascaixa-api.herokuapp.com/api/lotofacil/";
 
 
-
 function chamarInptValue(api) {
     let inputValue = document.querySelector("#pesquisar").value;
-
     if (let = pesquisar.value == []) {
-        let = alert("Digite um concurso valido!")
-        ipnutUndefined(undefined)
+        let = alert("Digite um concurso valido ⚠")
+        inputUndefined(undefined)
         //console.log([ ])
     } else if (let = pesquisar.value != []) {
         pegarApi(inputValue)
         return;
     }
-
-    function ipnutUndefined(undefined) {
-        let = document.querySelector("#span").innerHTML = let = `<p class="erroInputVazio">Concurso invalido!</p>`
+    
+    function inputUndefined(undefined) {
+        let  = document.querySelector("#span").innerHTML = let = `
+        <p class="erroInputVazio">⚠</p>`
         pegarApi(inputValue)
         return;
     }
@@ -28,7 +27,7 @@ async function pegarApi(inputValue) {
     const corpo = await fetch(`${api} + ${inputValue}`).then(Response => Response.json());
     //let = console.log(corpo)
     popularTela(corpo);
-    console.log(corpo)
+    //console.log(corpo)
     return;
 }
 ultimoConcurso(api)
@@ -36,23 +35,27 @@ async function ultimoConcurso(api) {
     let corpo = await fetch(api).then(Response => Response.json());
     corpo = corpo[0]
     popularTela(corpo)
+    
 }
-
+    var dezenas = document.querySelector(Response).value
+    console.log(dezenas)
 
 
 function popularTela(corpo) {
-    console.log(corpo)
+    //console.log(corpo)
     document.querySelector("#premio").innerHTML = `
     <section class="data">
     <span> <strong> Local </strong>${corpo.local}</span>
     <span> <strong> Acumulada </strong>${corpo.acumuladaProxConcurso} </span>
     <span> <strong> Data Proximo </strong> ${corpo.dataProxConcurso} </span>
+    <span> <strong> Concurso Proximo </strong> ${corpo.proxConcurso} </span>
     </section>
 
     <p class="premio">
     <span> 🟢 ${corpo.premiacoes[0].acertos} </span>
     <span> ${corpo.premiacoes[0].vencedores} <strong> Vencedores </strong> 🙌 </span>
     <span> ${corpo.premiacoes[0].premio} <strong> Premio </strong> 🤑 </span>
+
     </p>
     <p class="premio">
     <span> 🟢 ${corpo.premiacoes[1].acertos} </span>
@@ -75,6 +78,7 @@ function popularTela(corpo) {
     <span>${corpo.premiacoes[4].premio} <strong> Premio </strong> 🤑</span>
     </p>
     `
+
     document.querySelector("#span").innerHTML = corpo.concurso
     document.querySelector("#num0").innerHTML = corpo.dezenas[0];
     document.querySelector("#num1").innerHTML = corpo.dezenas[1];
@@ -102,5 +106,10 @@ function popularTela(corpo) {
     document.querySelector(".section #nome4").innerHTML = corpo.estadosPremiados[4].nome;
     document.querySelector(".section #uf4").innerHTML = corpo.estadosPremiados[4].uf;
 }
+
+
+
+
+
 
 
