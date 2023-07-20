@@ -11,6 +11,12 @@ button:hover{
     box-shadow: rgba(0, 0, 0, 0.649) 10px 10px 20px;
 
 }
+.data{
+    display: flex;
+    gap: 5px;
+    padding: 10px;
+
+}
 
 section .premio{
     display: flex;
@@ -93,7 +99,7 @@ p{
     padding: 20px;
     margin: 20px;
     columns: auto;
-    gap: 4px;
+    gap: 10px;
     color: purple;
 
 

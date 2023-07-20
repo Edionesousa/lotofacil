@@ -41,36 +41,41 @@ async function ultimoConcurso(api) {
 
 
 function popularTela(corpo) {
-    console.log(corpo.premiacoes)
-    document.querySelector("#premio").innerHTML = corpo.premiacoes = `
+    console.log(corpo)
+    document.querySelector("#premio").innerHTML = `
+    <section class="data">
+    <span> <strong> Local </strong>${corpo.local}</span>
+    <span> <strong> Acumulada </strong>${corpo.acumuladaProxConcurso} </span>
+    <span> <strong> Data Proximo </strong> ${corpo.dataProxConcurso} </span>
+    </section>
+
     <p class="premio">
     <span> 🟢 ${corpo.premiacoes[0].acertos} </span>
-    <span> ${corpo.premiacoes[0].vencedores} Vencedores 🙌 </span>
-    <span> ${corpo.premiacoes[0].premio} Premio 🤑 </span>
+    <span> ${corpo.premiacoes[0].vencedores} <strong> Vencedores </strong> 🙌 </span>
+    <span> ${corpo.premiacoes[0].premio} <strong> Premio </strong> 🤑 </span>
     </p>
     <p class="premio">
     <span> 🟢 ${corpo.premiacoes[1].acertos} </span>
-    <span> ${corpo.premiacoes[1].vencedores} Vencedores 🙌 </span>
-    <span>${corpo.premiacoes[1].premio} Premio 🤑 </span>
+    <span> ${corpo.premiacoes[1].vencedores} <strong> Vencedores </strong> 🙌 </span>
+    <span>${corpo.premiacoes[1].premio}  <strong> Premio </strong>🤑 </span>
      </p>
     <p class="premio">
     <span> 🟢 ${corpo.premiacoes[2].acertos} </span>
-    <span>${corpo.premiacoes[2].vencedores} Vencedores 🙌 </span>
-    <span>${corpo.premiacoes[2].premio} Premio 🤑 </span>
+    <span>${corpo.premiacoes[2].vencedores} <strong> Vencedores </strong> 🙌 </span>
+    <span>${corpo.premiacoes[2].premio} <strong> Premio </strong>🤑 </span>
      </p>
     <p class="premio">
     <span> 🟢 ${corpo.premiacoes[3].acertos} </span>
-    <span>${corpo.premiacoes[3].vencedores} Vencedores 🙌</span>
-    <span> ${corpo.premiacoes[3].premio} Premio 🤑 </span>
+    <span>${corpo.premiacoes[3].vencedores} <strong> Vencedores </strong> 🙌</span>
+    <span> ${corpo.premiacoes[3].premio} <strong> Premio </strong> 🤑 </span>
     </p>
     <p class="premio">
     <span> 🟢 ${corpo.premiacoes[4].acertos}</span>
-    <span>${corpo.premiacoes[4].vencedores} Vencedores 🙌 </span>
-    <span>${corpo.premiacoes[4].premio} Premio 🤑</span>
+    <span>${corpo.premiacoes[4].vencedores} <strong> Vencedores </strong> 🙌 </span>
+    <span>${corpo.premiacoes[4].premio} <strong> Premio </strong> 🤑</span>
     </p>
-
     `
-    document.querySelector("#span").innerHTML = corpo.concurso;
+    document.querySelector("#span").innerHTML = corpo.concurso
     document.querySelector("#num0").innerHTML = corpo.dezenas[0];
     document.querySelector("#num1").innerHTML = corpo.dezenas[1];
     document.querySelector("#num2").innerHTML = corpo.dezenas[2];
