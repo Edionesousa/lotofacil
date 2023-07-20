@@ -90,8 +90,197 @@
 <script>
 
 
+var BtnValue = document.querySelector("#ultimoConcurso").value;
+var api = "https://loteriascaixa-api.herokuapp.com/api/lotofacil/";
+
+
+
+function chamarInptValue(api) {
+    let inputValue = document.querySelector("#pesquisar").value;
+
+    if (let = pesquisar.value == []) {
+    let = alert("Digite um concurso valido!")
+    ipnutUndefined(undefined)
+        //console.log([ ])
+    } else if(let = pesquisar.value != []){
+        pegarApi(inputValue)
+        return;
+    }
+
+    function ipnutUndefined(undefined){
+        let = document.querySelector("#span").innerHTML = let = `<p class="erroInputVazio">Concurso invalido!</p>`
+        return;
+        pegarApi(inputValue)
+    }
+}
+
+async function pegarApi(inputValue) {
+    const corpo = await fetch(`${api} + ${inputValue}`).then(Response => Response.json());
+    //let = console.log(corpo)
+    popularTela(corpo);
+    return;
+}
+ultimoConcurso(api)
+async function ultimoConcurso(api) {
+    let corpo = await fetch(api).then(Response => Response.json());
+    corpo = corpo[0]
+    popularTela(corpo)
+}
+
+
+function popularTela(corpo) {
+    //console.log(corpo)
+    document.querySelector("#span").innerHTML = corpo.concurso;
+    document.querySelector("#num0").innerHTML = corpo.dezenas[0];
+    document.querySelector("#num1").innerHTML = corpo.dezenas[1];
+    document.querySelector("#num2").innerHTML = corpo.dezenas[2];
+    document.querySelector("#num3").innerHTML = corpo.dezenas[3];
+    document.querySelector("#num4").innerHTML = corpo.dezenas[4];
+    document.querySelector("#num5").innerHTML = corpo.dezenas[5];
+    document.querySelector("#num6").innerHTML = corpo.dezenas[6];
+    document.querySelector("#num7").innerHTML = corpo.dezenas[7];
+    document.querySelector("#num8").innerHTML = corpo.dezenas[8];
+    document.querySelector("#num9").innerHTML = corpo.dezenas[9];
+    document.querySelector("#num10").innerHTML = corpo.dezenas[10];
+    document.querySelector("#num11").innerHTML = corpo.dezenas[11];
+    document.querySelector("#num12").innerHTML = corpo.dezenas[12];
+    document.querySelector("#num13").innerHTML = corpo.dezenas[13];
+    document.querySelector("#num14").innerHTML = corpo.dezenas[14];
+    document.querySelector(".section #nome0").innerHTML = corpo.estadosPremiados[0].nome;
+    document.querySelector(".section #uf0").innerHTML = corpo.estadosPremiados[0].uf;
+    document.querySelector(".section #nome1").innerHTML = corpo.estadosPremiados[1].nome;
+    document.querySelector(".section #uf1").innerHTML = corpo.estadosPremiados[1].uf;
+    document.querySelector(".section #nome2").innerHTML = corpo.estadosPremiados[2].nome;
+    document.querySelector(".section #uf2").innerHTML = corpo.estadosPremiados[2].uf;
+    document.querySelector(".section #nome3").innerHTML = corpo.estadosPremiados[3].nome;
+    document.querySelector(".section #uf3").innerHTML = corpo.estadosPremiados[3].uf;
+    document.querySelector(".section #nome4").innerHTML = corpo.estadosPremiados[4].nome;
+    document.querySelector(".section #uf4").innerHTML = corpo.estadosPremiados[4].uf;
+}
+
+
+
+
 </script>
 
 <style>
+   button{
+    background-color: purple;
+    text-transform: uppercase;
+    color:whitesmoke;
+    padding: 3px;
+    width: 120px;
+    cursor: pointer;
+}
+button:hover{
+    background-color: rgba(128, 0, 128, 0.759);
+    box-shadow: rgba(0, 0, 0, 0.649) 10px 10px 20px;
+
+}
+.input{
+    display: flex;
+    width: 150px;
+    height: 50px;
+    border: none;
+    border-radius: 3px;
+    padding: 3px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-size: 20px;
+    margin: 3px;
+    text-shadow:purple 10px 10px 20px;
     
+}
+.resultado{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: purple;
+    color: whitesmoke;
+    text-shadow: rgba(0, 0, 0, 0.574) 10px 10px 10px;
+    box-shadow: rgba(0, 0, 0, 0.308) 10px -1px 50px;
+    margin-left: 3px;
+    border-radius: 50%;
+    font-size: 40px;
+    font-weight: bolder;
+    width: 70px;
+    height: 70px;
+    padding: 3px;
+    margin: 5px;
+}
+p{
+    text-shadow: black 10px 10px 10px;
+    border-color: whitesmoke 3px solid;
+    
+
+
+}
+.erroInputVazio{
+    text-transform: uppercase;
+    text-shadow: none;
+    display: flex;
+    flex-wrap:wrap;
+    width: 300px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    color: rgba(255, 0, 0, 0.664);
+    background-color:rgba(255, 255, 0, 0.486);
+    border-radius: 10px;
+    gap: 4px;
+}
+.section{
+    display: flex;
+    flex-wrap:wrap;
+    width: 85%;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background-color: rgba(128, 0, 128, 0.125);
+    box-shadow: rgba(0, 0, 0, 0.649) 10px 10px 10px;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    columns: auto;
+    gap: 4px;
+    color: purple;
+
+
+}
+h1{
+    display: flex;
+    min-width: 300px;
+    max-width: 95%;
+    font-style: normal;
+    justify-content: center;
+    color: purple;
+    font-weight: bolder;
+    font-size: 40px;
+    text-shadow: rgba(0, 0, 0, 0.559) 10px 10px 10px;
+    text-align: center ;
+    padding: 30px;
+    text-transform:uppercase;
+    height: auto;
+    margin: 3px;
+
+}
+.title{
+    min-width: 300px;
+    max-width: 100%;
+    height: 50%;
+}
+
+body{
+    display: grid;
+    background-color: white;
+    justify-content: center;
+}
+*{
+font-family: 'Libre Baskerville', serif;
+font-family: 'Noto Serif', serif;
+    padding: 0;
+    margin: 0;
+} 
 </style>
