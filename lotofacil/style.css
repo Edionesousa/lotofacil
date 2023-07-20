@@ -11,6 +11,20 @@ button:hover{
     box-shadow: rgba(0, 0, 0, 0.649) 10px 10px 20px;
 
 }
+
+section .premio{
+    display: flex;
+    background-color: purple;
+    gap: 20px;
+    justify-content:space-around;
+    align-items:normal;
+    text-align: center;
+    height: auto;
+    color: whitesmoke;
+    padding: 15px;
+    margin: 1px;
+
+}
 .input{
     display: flex;
     width: 150px;
