@@ -9,18 +9,18 @@ function chamarInptValue(api) {
     let inputValue = document.querySelector("#pesquisar").value;
 
     if (let = pesquisar.value == []) {
-    let = alert("Digite um concurso valido!")
-    ipnutUndefined(undefined)
+        let = alert("Digite um concurso valido!")
+        ipnutUndefined(undefined)
         //console.log([ ])
-    } else if(let = pesquisar.value != []){
+    } else if (let = pesquisar.value != []) {
         pegarApi(inputValue)
         return;
     }
 
-    function ipnutUndefined(undefined){
+    function ipnutUndefined(undefined) {
         let = document.querySelector("#span").innerHTML = let = `<p class="erroInputVazio">Concurso invalido!</p>`
-        return;
         pegarApi(inputValue)
+        return;
     }
 }
 
@@ -28,6 +28,7 @@ async function pegarApi(inputValue) {
     const corpo = await fetch(`${api} + ${inputValue}`).then(Response => Response.json());
     //let = console.log(corpo)
     popularTela(corpo);
+    console.log(corpo)
     return;
 }
 ultimoConcurso(api)
@@ -38,8 +39,52 @@ async function ultimoConcurso(api) {
 }
 
 
+
 function popularTela(corpo) {
-    //console.log(corpo)
+    console.log(corpo.premiacoes)
+    document.querySelector("#premio").innerHTML = corpo.premiacoes = `
+    <section class="section">
+    <div>
+    <section class="premio">
+    <span>${corpo.premiacoes[0].acertos}</span>
+    <span> ${corpo.premiacoes[0].vencedores} Vencedores</span>
+    <span> ${corpo.premiacoes[0].premio} Premio</span>
+     </section>
+</div>
+<div>
+    <section class="premio">
+    <span>${corpo.premiacoes[1].acertos}</span>
+    <span> ${corpo.premiacoes[1].vencedores} Vencedores</span>
+    <span>${corpo.premiacoes[1].premio} Premio</span>
+     </section>
+</div >
+<div>
+    <section class="premio">
+    <span>${corpo.premiacoes[2].acertos}</span>
+    <span>${corpo.premiacoes[2].vencedores} Vencedores</span>
+    <span>${corpo.premiacoes[2].premio} Premio</span>
+     </section>
+</div>
+<div>
+    <section class="premio">
+    <span>${corpo.premiacoes[3].acertos} </span>
+    <span>${corpo.premiacoes[3].vencedores} Vencedores</span>
+    <span> ${corpo.premiacoes[3].premio} Premio</span>
+    </section>
+</div>
+<div>
+    <section class="premio">
+    <span>${corpo.premiacoes[4].acertos}</span>
+    <span>${corpo.premiacoes[4].vencedores} Vencedores</span>
+    <span>${corpo.premiacoes[4].premio} Premio</span>
+    </section>
+</div>
+</section>
+    
+   
+   
+
+    `
     document.querySelector("#span").innerHTML = corpo.concurso;
     document.querySelector("#num0").innerHTML = corpo.dezenas[0];
     document.querySelector("#num1").innerHTML = corpo.dezenas[1];
