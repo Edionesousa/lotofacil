@@ -43,46 +43,31 @@ async function ultimoConcurso(api) {
 function popularTela(corpo) {
     console.log(corpo.premiacoes)
     document.querySelector("#premio").innerHTML = corpo.premiacoes = `
-    <section class="section">
-    <div>
-    <section class="premio">
+    <p class="premio">
     <span>${corpo.premiacoes[0].acertos}</span>
     <span> ${corpo.premiacoes[0].vencedores} Vencedores</span>
     <span> ${corpo.premiacoes[0].premio} Premio</span>
-     </section>
-</div>
-<div>
-    <section class="premio">
+    </p>
+    <p class="premio">
     <span>${corpo.premiacoes[1].acertos}</span>
     <span> ${corpo.premiacoes[1].vencedores} Vencedores</span>
     <span>${corpo.premiacoes[1].premio} Premio</span>
-     </section>
-</div >
-<div>
-    <section class="premio">
+     </p>
+    <p class="premio">
     <span>${corpo.premiacoes[2].acertos}</span>
     <span>${corpo.premiacoes[2].vencedores} Vencedores</span>
     <span>${corpo.premiacoes[2].premio} Premio</span>
-     </section>
-</div>
-<div>
-    <section class="premio">
+     </p>
+    <p class="premio">
     <span>${corpo.premiacoes[3].acertos} </span>
     <span>${corpo.premiacoes[3].vencedores} Vencedores</span>
     <span> ${corpo.premiacoes[3].premio} Premio</span>
-    </section>
-</div>
-<div>
-    <section class="premio">
+    </p>
+    <p class="premio">
     <span>${corpo.premiacoes[4].acertos}</span>
     <span>${corpo.premiacoes[4].vencedores} Vencedores</span>
     <span>${corpo.premiacoes[4].premio} Premio</span>
-    </section>
-</div>
-</section>
-    
-   
-   
+    </p>
 
     `
     document.querySelector("#span").innerHTML = corpo.concurso;

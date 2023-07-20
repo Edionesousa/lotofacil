@@ -15,14 +15,15 @@ button:hover{
 section .premio{
     display: flex;
     background-color: purple;
+    border-radius: 3px;
+    width: 100%;
     gap: 20px;
     justify-content:space-around;
     align-items:normal;
     text-align: center;
     height: auto;
     color: whitesmoke;
-    padding: 15px;
-    margin: 1px;
+    padding: 20px;
 
 }
 .input{
