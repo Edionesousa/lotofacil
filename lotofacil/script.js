@@ -25,7 +25,6 @@ function chamarInptValue(api) {
 
 async function pegarApi(inputValue) {
     const corpo = await fetch(`${api} + ${inputValue}`).then(Response => Response.json());
-    //let = console.log(corpo)
     popularTela(corpo);
     //console.log(corpo)
     return;
@@ -37,8 +36,6 @@ async function ultimoConcurso(api) {
     popularTela(corpo)
     
 }
-    var dezenas = document.querySelector(Response).value
-    console.log(dezenas)
 
 
 function popularTela(corpo) {
