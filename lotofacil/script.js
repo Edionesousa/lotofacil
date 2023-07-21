@@ -37,9 +37,8 @@ async function ultimoConcurso(api) {
     
 }
 
-
 function popularTela(corpo) {
-    //console.log(corpo)
+    console.log(corpo)
     document.querySelector("#premio").innerHTML = `
     <section class="data">
     <span> <strong> Local </strong>${corpo.local}</span>
