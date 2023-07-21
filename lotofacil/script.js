@@ -2,6 +2,14 @@
 
 var BtnValue = document.querySelector("#ultimoConcurso").value;
 var api = "https://loteriascaixa-api.herokuapp.com/api/lotofacil/";
+    const nossoJogo = {
+            [1]:jogoUm =  [1, 2, 6, 7, 8, 10, 13, 15, 17, 18, 19, 20, 21 ,23, 25],
+            [2]:jogoDois = [2, 3, 4, 5, 9, 10, 11, 12, 14,  16, 17, 18, 22, 24, 25],
+            [3]:jogoTres = [1, 3, 4, 6, 7, 8, 10, 12, 13, 15, 17, 19, 20, 21, 23],
+
+}
+
+
 
 
 function chamarInptValue(api) {
@@ -14,9 +22,9 @@ function chamarInptValue(api) {
         pegarApi(inputValue)
         return;
     }
-    
+
     function inputUndefined(undefined) {
-        let  = document.querySelector("#span").innerHTML = let = `
+        let = document.querySelector("#span").innerHTML = let = `
         <p class="erroInputVazio">⚠</p>`
         pegarApi(inputValue)
         return;
@@ -26,7 +34,8 @@ function chamarInptValue(api) {
 async function pegarApi(inputValue) {
     const corpo = await fetch(`${api} + ${inputValue}`).then(Response => Response.json());
     popularTela(corpo);
-    //console.log(corpo)
+    conferencia(corpo)
+    console.log(corpo)
     return;
 }
 ultimoConcurso(api)
@@ -34,11 +43,13 @@ async function ultimoConcurso(api) {
     let corpo = await fetch(api).then(Response => Response.json());
     corpo = corpo[0]
     popularTela(corpo)
-    
+    conferencia(corpo)
+
 }
 
+
 function popularTela(corpo) {
-    console.log(corpo)
+    //console.log(corpo)
     document.querySelector("#premio").innerHTML = `
     <section class="data">
     <span> <strong> Local </strong>${corpo.local}</span>
@@ -74,7 +85,22 @@ function popularTela(corpo) {
     <span>${corpo.premiacoes[4].premio} <strong> Premio </strong> 🤑</span>
     </p>
     `
+    dezenas(corpo)
+}
+conferencia(corpo)
 
+
+function conferencia(corpo){
+const dezenas = document.querySelector("#conferir").innerHTML = 
+console.log(dezenas)
+}
+console.log(nossoJogo)
+
+
+function dezenas(corpo) {
+    document.querySelector("#jogoUm").innerHTML = nossoJogo[1]
+    document.querySelector("#jogoDois").innerHTML = nossoJogo[2]
+    document.querySelector("#jogoTres").innerHTML = nossoJogo[3]
     document.querySelector("#span").innerHTML = corpo.concurso
     document.querySelector("#num0").innerHTML = corpo.dezenas[0];
     document.querySelector("#num1").innerHTML = corpo.dezenas[1];
@@ -101,8 +127,9 @@ function popularTela(corpo) {
     document.querySelector(".section #uf3").innerHTML = corpo.estadosPremiados[3].uf;
     document.querySelector(".section #nome4").innerHTML = corpo.estadosPremiados[4].nome;
     document.querySelector(".section #uf4").innerHTML = corpo.estadosPremiados[4].uf;
-}
 
+
+}
 
 
 
