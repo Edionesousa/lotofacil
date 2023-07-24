@@ -1,14 +1,15 @@
 
+    const BtnValue = document.querySelector("#ultimoConcurso").value;
+    const api = "https://loteriascaixa-api.herokuapp.com/api/lotofacil/";
 
-var BtnValue = document.querySelector("#ultimoConcurso").value;
-var api = "https://loteriascaixa-api.herokuapp.com/api/lotofacil/";
-    const nossoJogo = {
-            [1]:jogoUm =  [1, 2, 6, 7, 8, 10, 13, 15, 17, 18, 19, 20, 21 ,23, 25],
-            [2]:jogoDois = [2, 3, 4, 5, 9, 10, 11, 12, 14,  16, 17, 18, 22, 24, 25],
+    
+
+
+const nossoJogo = {
+            [1]:jogoUm =  [1, 2 ,6, 7, 8, 10, 13, 15, 17, 18, 19, 20, 21 ,23, 25],
+            [2]:jogoDois = [2, 3, 4, 5, 9, 10, 11, 12, 14,  16, 17, 18,22, 24, 25],
             [3]:jogoTres = [1, 3, 4, 6, 7, 8, 10, 12, 13, 15, 17, 19, 20, 21, 23],
-
 }
-
 
 
 
@@ -40,16 +41,25 @@ async function pegarApi(inputValue) {
 }
 ultimoConcurso(api)
 async function ultimoConcurso(api) {
-    let corpo = await fetch(api).then(Response => Response.json());
-    corpo = corpo[0]
-    popularTela(corpo)
-    conferencia(corpo)
+    var corpo = await fetch(api).then(Response => Response.json());
+    corpo = corpo[0] 
+        popularTela(corpo)
+    }
+
+function dezenasSorteadas(dezenas){
+    let res1 = dezenas.concat(jogoUm)
+    let res2 = dezenas.concat(jogoDois)
+    let res3 = dezenas.concat(jogoTres)
+
+    console.log(+res1 +res2 +res3)
+  
+  
+
 
 }
 
-
-function popularTela(corpo) {
-    //console.log(corpo)
+ function popularTela(corpo) {
+   //console.log(corpo)
     document.querySelector("#premio").innerHTML = `
     <section class="data">
     <span> <strong> Local </strong>${corpo.local}</span>
@@ -85,17 +95,9 @@ function popularTela(corpo) {
     <span>${corpo.premiacoes[4].premio} <strong> Premio </strong> 🤑</span>
     </p>
     `
+    dezenasSorteadas(corpo.dezenas)
     dezenas(corpo)
 }
-conferencia(corpo)
-
-
-function conferencia(corpo){
-const dezenas = document.querySelector("#conferir").innerHTML = 
-console.log(dezenas)
-}
-console.log(nossoJogo)
-
 
 function dezenas(corpo) {
     document.querySelector("#jogoUm").innerHTML = nossoJogo[1]
