@@ -6,9 +6,9 @@
 
 
 const nossoJogo = {
-            [1]:jogoUm =  [1, 2 ,6, 7, 8, 10, 13, 15, 17, 18, 19, 20, 21 ,23, 25],
-            [2]:jogoDois = [2, 3, 4, 5, 9, 10, 11, 12, 14,  16, 17, 18,22, 24, 25],
-            [3]:jogoTres = [1, 3, 4, 6, 7, 8, 10, 12, 13, 15, 17, 19, 20, 21, 23],
+            [1]:jogoUm =  ['1', '2' ,'6', '7', '8', '10', '13', '15', '17', '18', '19', '20', '21' ,'23', '25'],
+            [2]:jogoDois = ['2', '3', '4', '5', '9', '10', '11', '12', '14',  '16', '17', '18','22', '24', '25'],
+            [3]:jogoTres = ['1', '3', '4', '6', '7', '8', '10', '12', '13', '15', '17', '19', '20', '21', '23'],
 }
 
 
@@ -33,31 +33,19 @@ function chamarInptValue(api) {
 }
 
 async function pegarApi(inputValue) {
-    const corpo = await fetch(`${api} + ${inputValue}`).then(Response => Response.json());
+    var corpo = await fetch(`${api} + ${inputValue}`).then(Response => Response.json());
     popularTela(corpo);
     conferencia(corpo)
     console.log(corpo)
-    return;
+    return corpo;
 }
 ultimoConcurso(api)
 async function ultimoConcurso(api) {
     var corpo = await fetch(api).then(Response => Response.json());
     corpo = corpo[0] 
         popularTela(corpo)
-    }
-
-function dezenasSorteadas(dezenas){
-    let res1 = dezenas.concat(jogoUm)
-    let res2 = dezenas.concat(jogoDois)
-    let res3 = dezenas.concat(jogoTres)
-
-    console.log(+res1 +res2 +res3)
-  
-  
-
 
 }
-
  function popularTela(corpo) {
    //console.log(corpo)
     document.querySelector("#premio").innerHTML = `
@@ -95,11 +83,35 @@ function dezenasSorteadas(dezenas){
     <span>${corpo.premiacoes[4].premio} <strong> Premio </strong> 🤑</span>
     </p>
     `
-    dezenasSorteadas(corpo.dezenas)
     dezenas(corpo)
+    dezenasSorteadas(corpo.dezenas)
 }
 
+    resultadoFinalUm(corpo.dezenas)
+    function resultadoFinalUm(dezenas){
+        let res1 = dezenas.concat(jogoUm)
+        res1.filter((elemento, index, array) => array.indexOf(elemento) !== elemento)
+        document.querySelector("#res1").innerHTML = res1 
+    }
+    console.log(res1)
+    /*
+function  resultadoFinalDois(res2){
+    let  res2 = dezenas.concat(jogoTres)
+    res2.filter((elemento, index, array)=> array.indexOf(elemento) !== elemento)
+    document.querySelector("#res2").innerHTML = res2
+}
+
+function resultadoFinalTres(res3){
+    let res3 = dezenas.concat(jogoDois)
+    res3.filter((elemento, index, array) => array.indexOf(elemento) !== elemento)
+    document.querySelector("#res3").innerHTML = res3
+    
+    
+    console.log(res1, res2, res3)
+}
+*/
 function dezenas(corpo) {
+    //console.log(corpo)
     document.querySelector("#jogoUm").innerHTML = nossoJogo[1]
     document.querySelector("#jogoDois").innerHTML = nossoJogo[2]
     document.querySelector("#jogoTres").innerHTML = nossoJogo[3]

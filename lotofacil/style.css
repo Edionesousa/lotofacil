@@ -65,6 +65,15 @@ section .premio{
     padding: 3px;
     margin: 5px;
 }
+section.dashed{
+    border: dashed 1px;
+    padding: 10px;
+    margin: 10px  ;
+    width: auto;
+    background-color: purple;
+    color: whitesmoke;
+
+}
 p{
     text-shadow: black 10px 10px 10px;
     border-color: whitesmoke 3px solid;
@@ -91,6 +100,7 @@ p{
     display: flex;
     flex-wrap:wrap;
     width: 85%;
+    max-width: 900px;
     justify-content: center;
     text-align: center;
     align-items: center;
