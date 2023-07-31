@@ -69,8 +69,8 @@ async function ultimoConcurso(api) {
     <span> <strong> Local </strong>${corpo.local}</span>
     <span> <strong> Acumulada </strong>${corpo.acumuladaProxConcurso} </span>
     <span> <strong> Data Proximo </strong> ${corpo.dataProxConcurso} </span>
-    <span> <strong> Concurso Proximo </strong> ${corpo.proxConcurso} </span>
     <span> <strong> Concurso Atual </strong> ${corpo.concurso} </span>
+    <span> <strong> Concurso Proximo </strong> ${corpo.proxConcurso} </span>
 
     </section>
 
