@@ -47,6 +47,23 @@ section .premio{
     text-shadow:purple 10px 10px 20px;
     
 }
+
+.res{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 3px;
+    background-color: rgba(245, 245, 245, 0.604);
+    text-shadow: rgba(0, 0, 0, 0.574) 10px 10px 10px;
+    color: whitesmoke;
+    box-shadow: rgba(0, 0, 0, 0.308) 10px -1px 50px;
+    font-size: 20px;
+    font-weight: bolder;
+    padding: 5px;
+    margin: 5px;
+}
+
 .resultado{
     display: flex;
     justify-content: center;
@@ -66,13 +83,17 @@ section .premio{
     margin: 5px;
 }
 section.dashed{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     border: dashed 1px;
     padding: 10px;
     margin: 10px  ;
     width: auto;
-    background-color: purple;
-    color: whitesmoke;
+    background-color: rgb(128, 0, 128);
+    box-shadow: rgba(0, 0, 0, 0.308) 10px -1px 50px;
 
+    color: white;
 }
 p{
     text-shadow: black 10px 10px 10px;
@@ -115,7 +136,7 @@ p{
 
 
 }
-h1{
+h1,h2,h3{
     display: flex;
     min-width: 300px;
     max-width: 95%;
@@ -123,7 +144,7 @@ h1{
     justify-content: center;
     color: purple;
     font-weight: bolder;
-    font-size: 40px;
+    font-size: 20px;
     text-shadow: rgba(0, 0, 0, 0.559) 10px 10px 10px;
     text-align: center ;
     padding: 30px;
