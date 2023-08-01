@@ -3,9 +3,9 @@
 // Variavel que traz dados do jogo feito por nos, e que sera validado na logica no final do codigo//
 
 const nossoJogo = {
-    jogoUm:['1', '2' ,'6', '7', '8', '10', '13', '15', '17', '18', '19', '20', '21' ,'23', '25'],
-    jogoDois:['2', '3', '4', '5', '9', '10', '11', '12', '14',  '16', '17', '18','22', '24', '25'],
-    jogoTres:['1', '3', '4', '6', '7', '8', '10', '12', '13', '15', '17', '19', '20', '21', '23'],
+    jogoUm:['01', '02' ,'06', '07', '08', '10', '13', '15', '17', '18', '19', '20', '21' ,'23', '25'],
+    jogoDois:['02', '03', '04', '05', '09', '10', '11', '12', '14',  '16', '17', '18','22', '24', '25'],
+    jogoTres:['01', '03', '04', '06', '07', '08', '10', '12', '13', '15', '17', '19', '20', '21', '23'],
 }
 
    // link da variavel da API
@@ -42,8 +42,7 @@ async function pegarApi(inputValue) {
     let newCorpo = {...corpo, ...nossoJogo} /// usado para juntar os dados do (nosso jogo) em um unico (corpo) de response;
     corpo = newCorpo 
     //console.log(corpo)
-    popularTela(corpo);
-    tela(corpo);
+    chamadaDeFunction(corpo)
     return corpo;
 }
 
@@ -55,8 +54,23 @@ async function ultimoConcurso(api) {
     let newCorpo = {...corpo,...nossoJogo} // usado para juntar os dados do (nosso jogo) em um unico (corpo) de response;
     corpo = newCorpo   
      //console.log(corpo)
+     chamadaDeFunction(corpo)
+     return corpo;
+     
+    }
+    
+    function chamadaDeFunction(corpo){
+        
         popularTela(corpo);
-        tela(corpo);
+        telaDezena(corpo)
+        telaNossoJogo(corpo)
+        popularTela(corpo);
+        telaNossoJogo(corpo)
+        fazerDezenasUm(corpo)
+        fazerDezenasDois(corpo)
+        fazerDezenasTres(corpo)
+        telaEstadosPremiados(corpo)
+        dezenasJogoUm(corpo)
 
 }
 
@@ -101,8 +115,6 @@ async function ultimoConcurso(api) {
     <span>${corpo.premiacoes[4].premio} <strong> Premio </strong> 🤑</span>
     </p>
     `
-    telaNossoJogo(corpo)
-    telaDezena(corpo)
   
 }
 function  telaNossoJogo(corpo) {
@@ -117,8 +129,7 @@ function  telaNossoJogo(corpo) {
 
 // leva a tela dezenas sorteadas a cada dia//
 function telaDezena(corpo){
-    //corpo =  corpo.corpo;
-    console.log(corpo)
+    //console.log(corpo)
     document.querySelector("#span").innerHTML = corpo.concurso;
     document.querySelector("#num0").innerHTML = corpo.dezenas[0];
     document.querySelector("#num1").innerHTML = corpo.dezenas[1];
@@ -135,11 +146,7 @@ function telaDezena(corpo){
     document.querySelector("#num12").innerHTML = corpo.dezenas[12];
     document.querySelector("#num13").innerHTML = corpo.dezenas[13];
     document.querySelector("#num14").innerHTML = corpo.dezenas[14];
-
-    telaEstadosPremiados(corpo)
 }
-
-
 // leva a tela os estados premiados a cada sorteio//
 
 function telaEstadosPremiados(corpo){
@@ -154,77 +161,89 @@ function telaEstadosPremiados(corpo){
     document.querySelector("#uf3").innerHTML = corpo.estadosPremiados[3].uf;
     document.querySelector("#nome4").innerHTML = corpo.estadosPremiados[4].nome;
     document.querySelector("#uf4").innerHTML = corpo.estadosPremiados[4].uf;
-    telaConcurNum(corpo)
-    dezenasJogoUm(corpo)
-
+    
 }
 
     
     // validaçao do nosso premio (logica propria) //
 
     // valida premio no primeiro jogo / chamei de jogoUm
-    
-    function dezenasJogoUm(corpo){
-    const res1 = corpo.dezenas;
-    let juntUm = {...nossoJogo[1], ...res1}
-    //console.log(juntUm)
-   // let juntUm = res1.concat(nossoJogo[1])
-    let juntUmFilter = juntUm.filter((elemento, index , juntUm) =>juntUm.indexOf(elemento) !== index)
-    document.querySelector("#res1").innerHTML = juntUmFilter;
-    document.querySelector("#pontosUm").innerHTML = juntUmFilter.length;
-    if(juntUmFilter.length < 11){
-        document.querySelector("#NossoPremioUm").innerHTML =
-        `<p>  <strong> Nao deu! 🤷‍♀️</strong></p>`
-    } else if(juntUmFilter.length >= 11){
-        document.querySelector("#NossoPremioUm").innerHTML =
-       `<p><strong>✔ PREMIADO 🍻</strong></p>`
-}
-    console.log(juntUm)
-    console.log(juntUmFilter)
-    dezenasJogoDois(corpo)
-        return;
 
-        // valida segundo no segundo jogo/ chamei de jogoDois//
-}
-function dezenasJogoDois(corpo){
-    const res2 = corpo.dezenas;
-    let juntDois = res2.concat(nossoJogo[2])
-    let juntDoisFilter = juntDois.filter((elemento, index, juntDois) => juntDois.indexOf(elemento) !== index )
-    document.querySelector("#res2").innerHTML = juntDoisFilter;
-    document.querySelector("#pontosDois").innerHTML = juntDoisFilter.length
-    if(juntDoisFilter.length < 11){
-        document.querySelector("#NossoPremioDois").innerHTML =
-        `<p>  <strong>Nao deu! 🤷‍♀️</strong></p>`
-    }else if(juntDoisFilter.length >= 11){
-        document.querySelector("#NossoPremioDois").innerHTML =
-        `<p><strong> ✔ PREMIADO 🍻</strong></p>`
+    function fazerDezenasUm(corpo){
+        const arrayUm = corpo.dezenas.concat(...corpo.jogoUm)
+        pegarValoresIguaisUm(arrayUm)
+        //console.log(arrayUm)
+        return arrayUm;
     }
-    console.log(juntDois)
-    console.log(juntDoisFilter)
-    dezenasJogoTres(corpo)
-    return ;
-}
+        function pegarValoresIguaisUm(arrayUm) {
+            var valoresIguaisUm = arrayUm.filter(function(valor, indice, arr) {
+                return arr.indexOf(valor) !== indice;
+                
+            });
+            document.querySelector("#res1").innerHTML =  valoresIguaisUm;
+            document.querySelector("#pontosUm").innerHTML =  valoresIguaisUm.length
+            //console.log( valoresIguaisUm)
+            if( valoresIguaisUm.length < 11){
+                document.querySelector("#NossoPremioUm").innerHTML =
+                `<p>  <strong> Nao deu! 🤷‍♀️</strong></p>`
+            } else if( valoresIguaisUm.length >= 11){
+                document.querySelector("#NossoPremioUm").innerHTML =
+                `<p><strong>✔ PREMIADO 🍻</strong></p>`
+            }
+           
+            return ;
+        }    
+    // valida segundo no segundo jogo/ chamei de jogoDois//
 
- // valida terceiro no segundo jogo/ chamei de jogoTres//
-function dezenasJogoTres(corpo){
-    const res3 = corpo.dezenas;
-    let juntTres = res3.concat(nossoJogo[3])
-    let  juntTresFilter = juntTres.filter((elemento, index, juntTres) => juntTres.indexOf(elemento) !== index)
-     document.querySelector("#res3").innerHTML = juntTresFilter;
-     document.querySelector("#pontosTres").innerHTML = juntTresFilter.length
-    if(juntTresFilter.length < 11){
-        document.querySelector("#NossoPremioTres").innerHTML =
-        `<p>  <strong>Nao deu! 🤷‍♀️</strong></p>`
-    }else if(juntTresFilter.length >= 11){
-         document.querySelector("#NossoPremioTres").innerHTML =
-        `<p><strong> ✔ PREMIADO 🍻</strong></p>`
+    function fazerDezenasDois(corpo){
+        //console.log(corpo)
+        const arrayDois = corpo.dezenas.concat(...corpo.jogoDois)
+        pegarValoresIguaisDois(arrayDois)
+        return arrayDois;
     }
-    consolel.log(juntTres)
-    console.log(juntTresFilter)
-    return;
-}
+    function pegarValoresIguaisDois(arrayDois) {
+        //console.log(arrayDois)
+        var valoresIguaisDois = arrayDois.filter(function(valor, indice, arrDois) {
+            return arrDois.indexOf(valor) !== indice;
+        });
+        document.querySelector("#res2").innerHTML = valoresIguaisDois;
+        document.querySelector("#pontosDois").innerHTML = valoresIguaisDois.length
+        //console.log(valoresIguaisDois)
+        if(valoresIguaisDois.length < 11){
+            document.querySelector("#NossoPremioDois").innerHTML =
+            `<p>  <strong> Nao deu! 🤷‍♀️</strong></p>`
+        } else if(valoresIguaisDois.length >= 11){
+            document.querySelector("#NossoPremioDois").innerHTML =
+            `<p><strong>✔ PREMIADO 🍻</strong></p>`
+        }
+        return ;
+    }
 
+     // valida segundo no segundo jogo/ chamei de jogoTres//
 
+    function fazerDezenasTres(corpo){
+        const arrayTres = corpo.dezenas.concat(...corpo.jogoTres)
+        pegarValoresIguaisTres(arrayTres)
+        return  arrayTres;
+    }
+    //console.log(arrayTres)
+    function pegarValoresIguaisTres(arrayTres) {
+        //console.log( arrayTres)
+        var valoresIguaisTres =  arrayTres.filter(function(valor, indice, arrTres) {
+            return arrTres.indexOf(valor) !== indice;
+        });
+        document.querySelector("#res3").innerHTML = valoresIguaisTres;
+        document.querySelector("#pontosTres").innerHTML = valoresIguaisTres.length
+        //console.log(valoresIguaisTres)
+        if(valoresIguaisTres.length < 11){
+            document.querySelector("#NossoPremioTres").innerHTML =
+            `<p>  <strong> Nao deu! 🤷‍♀️</strong></p>`
+        } else if(valoresIguaisTres.length >= 11){
+            document.querySelector("#NossoPremioTres").innerHTML =
+            `<p><strong>✔ PREMIADO 🍻</strong></p>`
+        }
+        return arrayTres;
+    }
 //// POR HORA FINAL DO CODIGO ///
 
 
