@@ -43,7 +43,8 @@ async function pegarApi(inputValue) {
     corpo = newCorpo 
     //console.log(corpo)
     popularTela(corpo);
-    tela(corpo);
+    telaNossoJogo(corpo)
+    telaDezena(corpo)
     return corpo;
 }
 
@@ -56,7 +57,9 @@ async function ultimoConcurso(api) {
     corpo = newCorpo   
      //console.log(corpo)
         popularTela(corpo);
-        tela(corpo);
+        telaNossoJogo(corpo)
+        telaDezena(corpo)
+        return corpo;
 
 }
 
@@ -101,8 +104,6 @@ async function ultimoConcurso(api) {
     <span>${corpo.premiacoes[4].premio} <strong> Premio </strong> 🤑</span>
     </p>
     `
-    telaNossoJogo(corpo)
-    telaDezena(corpo)
   
 }
 function  telaNossoJogo(corpo) {
