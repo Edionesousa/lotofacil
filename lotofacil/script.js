@@ -118,8 +118,7 @@ function  telaNossoJogo(corpo) {
 
 // leva a tela dezenas sorteadas a cada dia//
 function telaDezena(corpo){
-    //corpo =  corpo.corpo;
-    console.log(corpo)
+    //console.log(corpo)
     document.querySelector("#span").innerHTML = corpo.concurso;
     document.querySelector("#num0").innerHTML = corpo.dezenas[0];
     document.querySelector("#num1").innerHTML = corpo.dezenas[1];
