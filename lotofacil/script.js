@@ -59,6 +59,7 @@ async function ultimoConcurso(api) {
      
     }
     
+    // Funçao, cuja objetivo e so chamar outras funçoes, fazendo assim a passagem de paramentros ser consistentes, evitando quebra de dados no decorrer do codigo.
     function chamadaDeFunction(corpo){
         
         popularTela(corpo);
