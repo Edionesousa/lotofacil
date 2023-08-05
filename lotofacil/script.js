@@ -11,11 +11,12 @@ const nossoJogo = {
    // link da variavel da API
    
    const BtnValue = document.querySelector("#ultimoConcurso").value;
-    const api = "https://loteriascaixa-api.herokuapp.com/api/lotofacil/";
+    const api = ["https://loteriascaixa-api.herokuapp.com/api/lotofacil/"];
+    const apiUltimo = ["https://loteriascaixa-api.herokuapp.com/api/lotofacil/latest"];
 
-
-// valida e tras dados do input para linkar com a API logo abaixo//
-function chamarInptValue(api) {
+   
+// valida e traz dados do input para linkar com a API logo abaixo//
+function chamarInptValue(api ) {
     let inputValue = document.querySelector("#pesquisar").value;
     if (let = pesquisar.value == []) {
         let = alert("Digite um concurso valido ⚠")
@@ -48,12 +49,12 @@ async function pegarApi(inputValue) {
 
 // recebe dados da API geral//
 ultimoConcurso(api)
-async function ultimoConcurso(api) {
-    var corpo = await fetch(api).then(Response => Response.json());
+async function ultimoConcurso(apiUltimo) {
+    var corpo = await fetch(apiUltimo).then(Response => Response.json());
+    //console.log(corpo)
     corpo = corpo[0]
     let newCorpo = {...corpo,...nossoJogo} // usado para juntar os dados do (nosso jogo) em um unico (corpo) de response;
     corpo = newCorpo   
-     //console.log(corpo)
      chamadaDeFunction(corpo)
      return corpo;
      
@@ -83,8 +84,8 @@ async function ultimoConcurso(api) {
     <span> <strong> Local </strong>${corpo.local}</span>
     <span> <strong> Acumulada </strong>${corpo.acumuladaProxConcurso} </span>
     <span> <strong> Data Proximo </strong> ${corpo.dataProxConcurso} </span>
-    <span> <strong> Concurso Proximo </strong> ${corpo.proxConcurso} </span>
     <span> <strong> Concurso Atual </strong> ${corpo.concurso} </span>
+    <span> <strong> Concurso Proximo </strong> ${corpo.proxConcurso} </span>
 
     </section>
 
@@ -190,7 +191,6 @@ function telaEstadosPremiados(corpo){
                 document.querySelector("#NossoPremioUm").innerHTML =
                 `<p><strong>✔ PREMIADO 🍻</strong></p>`
             }
-           
             return ;
         }    
     // valida segundo no segundo jogo/ chamei de jogoDois//
@@ -219,7 +219,7 @@ function telaEstadosPremiados(corpo){
         return ;
     }
 
-     // valida segundo no segundo jogo/ chamei de jogoTres//
+     // valida terceiro  jogo/ chamei de jogoTres//
 
     function fazerDezenasTres(corpo){
         const arrayTres = corpo.dezenas.concat(...corpo.jogoTres)
