@@ -28,7 +28,6 @@ function chamarInptValue(api) {
     }
 
 
-
     // valida se o imput foi preenchido corretamen, nao permiti valor vazio, ou zerado//
     function inputUndefined(undefined) {
         let = document.querySelector("#span").innerHTML = let = `
@@ -72,18 +71,28 @@ function chamadaDeFunction(corpo) {
     fazerDezenasTres(corpo)
     telaEstadosPremiados(corpo)
     dezenasJogoUm(corpo)
+    vlrIndef(corpo)
 
 }
 
 // leva a tela os valores pagos e cada nivel de pontos//
-function popularTela(corpo) {
-    //console.log(corpo)
-    corpo = corpo;
-    document.querySelector("#premio").innerHTML = `
+function vlrIndef(corpo) {
+    <span> <strong> Acumulada </strong>${corpo.acumuladaProxConcurso} </span>
+    const unde = corpo.acumuladaProxConcurso
+    if (unde == true) {
+        <p>Sim</p>
+    } else {
+        <p>Não</p>
+    }
+    console.log(unde)
+}
+
+corpo = corpo;
+document.querySelector("#premio").innerHTML = `
     <section class="data">
     <span> <strong> Local </strong>${corpo.local}</span>
-    <span> <strong> Acumulada </strong>${corpo.acumuladaProxConcurso} </span>
     <span> <strong> Data Proximo </strong> ${corpo.dataProximoConcurso} </span>
+    <span> <strong> Acumulada </strong>${corpo.acumuladaProxConcurso} </span>
     <span> <strong> Concurso Atual </strong> ${corpo.concurso} </span>
     <span> <strong> Concurso Proximo </strong> ${corpo.proximoConcurso} </span>
 
@@ -117,7 +126,7 @@ function popularTela(corpo) {
     </p>
     `
 
-}
+
 function telaNossoJogo(corpo) {
     //console.log(corpo) 
     document.querySelector("#jogoUm").innerHTML = corpo.jogoUm
@@ -152,6 +161,7 @@ function telaDezena(corpo) {
 
 function telaEstadosPremiados(corpo) {
     corpo = corpo;
+    //console.log(corpo)
     document.querySelector("#nome0").innerHTML = corpo.estadosPremiados[0].nome;
     document.querySelector("#uf0").innerHTML = corpo.estadosPremiados[0].uf;
     document.querySelector("#nome1").innerHTML = corpo.estadosPremiados[1].nome;
