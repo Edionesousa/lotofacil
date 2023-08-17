@@ -83,37 +83,37 @@ async function ultimoConcurso(apiUltimo) {
     <section class="data">
     <span> <strong> Local </strong>${corpo.local}</span>
     <span> <strong> Acumulada </strong>${corpo.acumuladaProxConcurso} </span>
-    <span> <strong> Data Proximo </strong> ${corpo.dataProxConcurso} </span>
+    <span> <strong> Data Proximo </strong> ${corpo.dataProximoConcurso} </span>
     <span> <strong> Concurso Atual </strong> ${corpo.concurso} </span>
-    <span> <strong> Concurso Proximo </strong> ${corpo.proxConcurso} </span>
+    <span> <strong> Concurso Proximo </strong> ${corpo.proximoConcurso} </span>
 
     </section>
-
+    
     <p class="premio">
-    <span> 🟢 ${corpo.premiacoes[0].acertos} </span>
-    <span> ${corpo.premiacoes[0].vencedores} <strong> Vencedores </strong> 🙌 </span>
-    <span> ${corpo.premiacoes[0].premio} <strong> Premio </strong> 🤑 </span>
+    <span> 🟢 ${corpo.premiacoes[0].descricao} </span>
+    <span> ${corpo.premiacoes[0].ganhadores} <strong> Ganhadores </strong> 🙌 </span>
+    <span> ${corpo.premiacoes[0].valorPremio} <strong> Reais </strong> 🤑 </span>
 
     </p>
     <p class="premio">
-    <span> 🟢 ${corpo.premiacoes[1].acertos} </span>
-    <span> ${corpo.premiacoes[1].vencedores} <strong> Vencedores </strong> 🙌 </span>
-    <span>${corpo.premiacoes[1].premio}  <strong> Premio </strong>🤑 </span>
+    <span> 🟢 ${corpo.premiacoes[1].descricao} </span>
+    <span> ${corpo.premiacoes[1].ganhadores} <strong> Ganhadores </strong> 🙌 </span>
+    <span>${corpo.premiacoes[1].valorPremio}  <strong> Reais </strong>🤑 </span>
      </p>
     <p class="premio">
-    <span> 🟢 ${corpo.premiacoes[2].acertos} </span>
-    <span>${corpo.premiacoes[2].vencedores} <strong> Vencedores </strong> 🙌 </span>
-    <span>${corpo.premiacoes[2].premio} <strong> Premio </strong>🤑 </span>
+    <span> 🟢 ${corpo.premiacoes[2].descricao} </span>
+    <span>${corpo.premiacoes[2].ganhadores} <strong> Ganhadores </strong> 🙌 </span>
+    <span>${corpo.premiacoes[2].valorPremio} <strong> Reais </strong>🤑 </span>
      </p>
     <p class="premio">
-    <span> 🟢 ${corpo.premiacoes[3].acertos} </span>
-    <span>${corpo.premiacoes[3].vencedores} <strong> Vencedores </strong> 🙌</span>
-    <span> ${corpo.premiacoes[3].premio} <strong> Premio </strong> 🤑 </span>
+    <span> 🟢 ${corpo.premiacoes[3].descricao} </span>
+    <span>${corpo.premiacoes[3].ganhadores} <strong> Ganhadores </strong> 🙌</span>
+    <span> ${corpo.premiacoes[3].valorPremio} <strong> Reais </strong> 🤑 </span>
     </p>
     <p class="premio">
-    <span> 🟢 ${corpo.premiacoes[4].acertos}</span>
-    <span>${corpo.premiacoes[4].vencedores} <strong> Vencedores </strong> 🙌 </span>
-    <span>${corpo.premiacoes[4].premio} <strong> Premio </strong> 🤑</span>
+    <span> 🟢 ${corpo.premiacoes[4].descricao}</span>
+    <span>${corpo.premiacoes[4].ganhadores} <strong> Ganhadores </strong> 🙌 </span>
+    <span>${corpo.premiacoes[4].valorPremio} <strong> Reais </strong> 🤑</span>
     </p>
     `
   
