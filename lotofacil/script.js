@@ -52,6 +52,7 @@ async function ultimoConcurso(apiUltimo) {
     var corpo = await fetch(apiUltimo).then(Response => Response.json());
     //console.log(corpo)
     corpo = corpo[0]
+<<<<<<< HEAD
     let newCorpo = { ...corpo, ...nossoJogo } // usado para juntar os dados do (nosso jogo) em um unico (corpo) de response;
     corpo = newCorpo
     chamadaDeFunction(corpo)
@@ -71,6 +72,29 @@ function chamadaDeFunction(corpo) {
     fazerDezenasTres(corpo)
     telaEstadosPremiados(corpo)
     dezenasJogoUm(corpo)
+=======
+    let newCorpo = {...corpo,...nossoJogo} // usado para juntar os dados do (nosso jogo) em um unico (corpo) de response;
+    corpo = newCorpo   
+     //console.log(corpo)
+     chamadaDeFunction(corpo)
+     return corpo;
+     
+    }
+    
+    // Funçao, cuja objetivo e so chamar outras funçoes, fazendo assim a passagem de paramentros ser consistentes, evitando quebra de dados no decorrer do codigo.
+    function chamadaDeFunction(corpo){
+        
+        popularTela(corpo);
+        telaDezena(corpo)
+        telaNossoJogo(corpo)
+        popularTela(corpo);
+        telaNossoJogo(corpo)
+        fazerDezenasUm(corpo)
+        fazerDezenasDois(corpo)
+        fazerDezenasTres(corpo)
+        telaEstadosPremiados(corpo)
+        dezenasJogoUm(corpo)
+>>>>>>> main
 
 }
 
@@ -80,11 +104,19 @@ function popularTela(corpo) {
     corpo = corpo;
     document.querySelector("#premio").innerHTML = `
     <section class="data">
+<<<<<<< HEAD
     <span class="dadosPremio"> <strong> Local </strong>${corpo.local}</span>
     <span class="dadosPremio"> <strong> Data Proximo </strong> ${corpo.dataProximoConcurso} </span>
     <span class="dadosPremio"> <strong> Concurso Atual </strong> ${corpo.concurso} </span>
     <span class="dadosPremio"> <strong> Acumulado </strong> ${corpo.valorAcumuladoProximoConcurso}</span>
     <span class="dadosPremio"> <strong> Concurso Proximo </strong> ${corpo.proximoConcurso} </span>
+=======
+    <span> <strong> Local </strong>${corpo.local}</span>
+    <span> <strong> Acumulada </strong>${corpo.acumuladaProxConcurso} </span>
+    <span> <strong> Data Proximo </strong> ${corpo.dataProxConcurso} </span>
+    <span> <strong> Concurso Atual </strong> ${corpo.concurso} </span>
+    <span> <strong> Concurso Proximo </strong> ${corpo.proxConcurso} </span>
+>>>>>>> main
 
     </section>
     
