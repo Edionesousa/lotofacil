@@ -76,15 +76,15 @@ function chamadaDeFunction(corpo) {
 
 // leva a tela os valores pagos e cada nivel de pontos//
 function popularTela(corpo) {
-    //console.log(corpo)
+    console.log(corpo)
     corpo = corpo;
     document.querySelector("#premio").innerHTML = `
     <section class="data">
-    <span> <strong> Local </strong>${corpo.local}</span>
-    <span> <strong> Acumulada </strong>${corpo.acumuladaProxConcurso} </span>
-    <span> <strong> Data Proximo </strong> ${corpo.dataProximoConcurso} </span>
-    <span> <strong> Concurso Atual </strong> ${corpo.concurso} </span>
-    <span> <strong> Concurso Proximo </strong> ${corpo.proximoConcurso} </span>
+    <span class="dadosPremio"> <strong> Local </strong>${corpo.local}</span>
+    <span class="dadosPremio"> <strong> Data Proximo </strong> ${corpo.dataProximoConcurso} </span>
+    <span class="dadosPremio"> <strong> Concurso Atual </strong> ${corpo.concurso} </span>
+    <span class="dadosPremio"> <strong> Acumulado </strong> ${corpo.valorAcumuladoProximoConcurso}</span>
+    <span class="dadosPremio"> <strong> Concurso Proximo </strong> ${corpo.proximoConcurso} </span>
 
     </section>
     
@@ -152,16 +152,12 @@ function telaDezena(corpo) {
 function telaEstadosPremiados(corpo) {
     corpo = corpo;
     //console.log(corpo)
-    document.querySelector("#nome0").innerHTML = corpo.estadosPremiados[0].nome;
-    document.querySelector("#uf0").innerHTML = corpo.estadosPremiados[0].uf;
-    document.querySelector("#nome1").innerHTML = corpo.estadosPremiados[1].nome;
-    document.querySelector("#uf1").innerHTML = corpo.estadosPremiados[1].uf;
-    document.querySelector("#nome2").innerHTML = corpo.estadosPremiados[2].nome;
-    document.querySelector("#uf2").innerHTML = corpo.estadosPremiados[2].uf;
-    document.querySelector("#nome3").innerHTML = corpo.estadosPremiados[3].nome;
-    document.querySelector("#uf3").innerHTML = corpo.estadosPremiados[3].uf;
-    document.querySelector("#nome4").innerHTML = corpo.estadosPremiados[4].nome;
-    document.querySelector("#uf4").innerHTML = corpo.estadosPremiados[4].uf;
+    document.querySelector("#estado").innerHTML = `
+        <span>${corpo.localGanhadores[0].ganhadores}<strong> Ganhador</strong> de ${corpo.localGanhadores[0].municipio},</span>
+        <span>${corpo.localGanhadores[1].ganhadores}<strong> Ganhador</strong> de ${corpo.localGanhadores[1].municipio},</span>
+        <span>${corpo.localGanhadores[2].ganhadores}<strong> Ganhador</strong> de ${corpo.localGanhadores[2].municipio}.</span>
+        `
+        ;
 
 }
 

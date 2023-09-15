@@ -14,55 +14,63 @@
     <link rel="stylesheet" href="style.css">
     <title>Lotofacil</title>
 </head>
+<header>
+    <div class="title">
+        <h1>Resultado Lotofacil</h1>
+        <input class="input" type="number" id="pesquisar" placeholder="Concurso" value="">
+        <button class="button" onclick="chamarInptValue(api)">pesquisar</button>
+    </div>
+</header>
 
 <body class="body">
     <div class="body">
-        <header>
-            <div class="title">
-                <h1>Resultado Lotofacil</h1>
-            </div>
-        </header>
-        <section class="section">
-            <input class="input" type="number" id="pesquisar" placeholder="Concurso" value="">
-            <button class="input" onclick="chamarInptValue(api)">pesquisar</button>
-        </section>
         <section class="section">
             <button class="button" id="ultimoConcurso" onclick=" ultimoConcurso(api)" value="">Ultimo Concurso</button>
-            <section class="input" id="span"></section>
+            <section class="ultimoConcurso" id="span"></section>
         </section>
-        <h3>Conferir e  validar o nosso jogo!</h3>
+        <h3>Conferir e validar o nosso jogo!</h3>
         <section class="section">
             <div>
-                
+
                 <section class="dashed">
-                <strong> ✔ Jogo Um</strong><div id="jogoUm" class="res"></div>
-                <strong>Acertos Jogo Um:</strong><div id="res1" class="res"> </div>
-                <strong >Pontos Jogo Um:</strong><div id="pontosUm" class="res"></div> <div id="NossoPremioUm"></div>
+                    <strong> ✔ Jogo Um</strong>
+                    <div id="jogoUm" class="res"></div>
+                    <strong>Acertos Jogo Um:</strong>
+                    <div id="res1" class="res"> </div>
+                    <strong>Pontos Jogo Um:</strong>
+                    <div id="pontosUm" class="res"></div>
+                    <div id="NossoPremioUm"></div>
                 </section>
-               <section class="dashed">
-                <strong> ✔ Jogo Dois</strong><div id="jogoDois" class="res"></div>
-                <strong>Acertos Jogo Dois:</strong><div id="res2" class="res"></div>
-                <strong>Pontos Jogo Dois:</strong><div id="pontosDois"class="res"></div>
-                <div id="NossoPremioDois"></div>
-               </section>
-               <div>
                 <section class="dashed">
-                <strong> ✔ Jogo Tres</strong><div id="jogoTres" class="res"></div>
-                <strong>Acertos Jogo Tres:</strong><div id="res3" class="res"></div>
-                <strong>Pontos Jogo Tres:</strong><div id="pontosTres" class="res"></div>
-                <div id="NossoPremioTres"></div>
-               </section>
-               </div>
+                    <strong> ✔ Jogo Dois</strong>
+                    <div id="jogoDois" class="res"></div>
+                    <strong>Acertos Jogo Dois:</strong>
+                    <div id="res2" class="res"></div>
+                    <strong>Pontos Jogo Dois:</strong>
+                    <div id="pontosDois" class="res"></div>
+                    <div id="NossoPremioDois"></div>
+                </section>
+                <div>
+                    <section class="dashed">
+                        <strong> ✔ Jogo Tres</strong>
+                        <div id="jogoTres" class="res"></div>
+                        <strong>Acertos Jogo Tres:</strong>
+                        <div id="res3" class="res"></div>
+                        <strong>Pontos Jogo Tres:</strong>
+                        <div id="pontosTres" class="res"></div>
+                        <div id="NossoPremioTres"></div>
+                    </section>
+                </div>
             </div>
         </section>
-            
+
         <h3>Numeros sorteados</h3>
         <section class="section" id="sortDezenas">
-            <div class="resultado" id="num0"> 
+            <div class="resultado" id="num0">
             </div>
             <div class="resultado" id="num1">
             </div>
-            <div class="resultado" id="num2"> 
+            <div class="resultado" id="num2">
             </div>
             <div class="resultado" id="num3">
             </div>
@@ -89,27 +97,21 @@
             <div class="resultado" id="num14">
             </div>
         </section>
-       
         <h3>Estado ganhador</h3>
-        <section class="section"id="section">
-                <div id="nome0"><!--Estado--></div>
-                <div id="uf0"><!--UF--></div>
-                <div id="nome1"><!--Estado--> </div>
-                <div id="uf1"><!--UF--></div>
-                <div id="nome2"><!--Estado--> </div>
-                <div id="uf2"><!--UF--></div>
-                <div id="nome3"> <!--Estado--></div>
-                <div id="uf3"><!--UF--></div>
-                <div id="nome4"> <!--Estado--></div>
-                <div id="uf4"><!--UF--></div>
-                <div id="diaSorteio"> <!--dia do sorteio--></div>
-        </section >
+        <section class="section" id="estado">
+            <div class="cidade"><!--Cidade--></div>
+            <div id="uf0"><!--UF--></div>
+
+        </section>
         <section class="section" id="premio">
             <!--Dados de premiaçao-->
         </section>
 
         <footer class="section">
-            <section>EDIONE</section>
+
+            <section>
+                <div>EDIONE</div>
+            </section>
 
         </footer>
     </div>
@@ -117,11 +119,11 @@
 
 </html>
 <script>
-    
+
 </script>
 
 <style>
-    
-</style>  
+
+</style>
 
 <strong></strong>
