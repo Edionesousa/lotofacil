@@ -111,12 +111,7 @@ function popularTela(corpo) {
     <span class="dadosPremio"> <strong> Acumulado </strong> ${corpo.valorAcumuladoProximoConcurso}</span>
     <span class="dadosPremio"> <strong> Concurso Proximo </strong> ${corpo.proximoConcurso} </span>
 =======
-    <span> <strong> Local </strong>${corpo.local}</span>
-    <span> <strong> Acumulada </strong>${corpo.acumuladaProxConcurso} </span>
-    <span> <strong> Data Proximo </strong> ${corpo.dataProxConcurso} </span>
-    <span> <strong> Concurso Atual </strong> ${corpo.concurso} </span>
-    <span> <strong> Concurso Proximo </strong> ${corpo.proxConcurso} </span>
->>>>>>> main
+
 
     </section>
     
