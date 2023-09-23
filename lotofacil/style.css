@@ -1,3 +1,14 @@
+* {
+    font-family: 'Libre Baskerville', sans-serif;
+    font-family: 'Noto Serif', sans-serif;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    zoom: 0;
+}
+
+
+
 button {
     background-color: rgb(128, 0, 128);
     text-transform: uppercase;
@@ -42,12 +53,27 @@ section .premio {
     border-radius: 3px;
     width: 95%;
     gap: 20px;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: normal;
     text-align: center;
     height: auto;
     color: whitesmoke;
     padding: 20px;
+
+}
+
+.informe{
+    margin: none;
+    padding: none;
+    display:flex;
+    font-weight: bold;
+    background-color: #fff;
+    justify-content: space-around;
+    align-items: center;
+    color: goldenrod;
+    width: 23px;
+    border-radius: 50%;
+    border-color: goldenrod solid 3px;
 
 }
 
@@ -160,7 +186,7 @@ p {
 .section {
     display: flex;
     flex-wrap: wrap;
-    width: 85%;
+    width:85%;
     max-width: 900px;
     justify-content: center;
     text-align: center;
@@ -173,6 +199,7 @@ p {
     columns: auto;
     gap: 10px;
     color: purple;
+    border:#fff outset 2px;
 
 
 }
@@ -200,14 +227,42 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: stretch;
-    padding: 10px;
+    padding: 20px;
     align-items: center;
     width: auto;
     height: 100px;
     background-color:rgba(128, 0, 128, 0.779);
     color: #fff;
+    margin-top: 2px;
     
 }
+.footer{
+    font-size: 0.9em;
+        display: grid;
+        justify-content: center;
+        align-items: stretch;
+        padding: 20px;
+        align-items: center;
+        width: auto;
+        height: auto;
+        background-color:rgba(128, 0, 128, 0.779);
+        color: #fff;
+        margin-bottom: 2px;
+    }
+    .divDesenvolvedor{
+        font-size: 1.2em;
+        display: flex;
+        margin-top: 30px;
+
+    }
+    .footerInfomeDiv{
+        display: flex;
+        justify-content: space-between;
+        margin-top: -10px;
+        margin-bottom: 15px;
+    
+    }
+    
 
 body 
 {
@@ -218,9 +273,3 @@ body
     justify-content: center;
 }
 
-* {
-    font-family: 'Libre Baskerville', serif;
-    font-family: 'Noto Serif', serif;
-    padding: 0;
-    margin: 0;
-}

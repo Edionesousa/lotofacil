@@ -52,7 +52,6 @@ async function ultimoConcurso(apiUltimo) {
     var corpo = await fetch(apiUltimo).then(Response => Response.json());
     //console.log(corpo)
     corpo = corpo[0]
-<<<<<<< HEAD
     let newCorpo = { ...corpo, ...nossoJogo } // usado para juntar os dados do (nosso jogo) em um unico (corpo) de response;
     corpo = newCorpo
     chamadaDeFunction(corpo)
@@ -72,45 +71,20 @@ function chamadaDeFunction(corpo) {
     fazerDezenasTres(corpo)
     telaEstadosPremiados(corpo)
     dezenasJogoUm(corpo)
-=======
-    let newCorpo = {...corpo,...nossoJogo} // usado para juntar os dados do (nosso jogo) em um unico (corpo) de response;
-    corpo = newCorpo   
-     //console.log(corpo)
-     chamadaDeFunction(corpo)
-     return corpo;
-     
-    }
-    
-    // Funçao, cuja objetivo e so chamar outras funçoes, fazendo assim a passagem de paramentros ser consistentes, evitando quebra de dados no decorrer do codigo.
-    function chamadaDeFunction(corpo){
-        
-        popularTela(corpo);
-        telaDezena(corpo)
-        telaNossoJogo(corpo)
-        popularTela(corpo);
-        telaNossoJogo(corpo)
-        fazerDezenasUm(corpo)
-        fazerDezenasDois(corpo)
-        fazerDezenasTres(corpo)
-        telaEstadosPremiados(corpo)
-        dezenasJogoUm(corpo)
->>>>>>> main
 
 }
 
 // leva a tela os valores pagos e cada nivel de pontos//
 function popularTela(corpo) {
-    console.log(corpo)
+    //console.log(corpo)
     corpo = corpo;
     document.querySelector("#premio").innerHTML = `
     <section class="data">
-<<<<<<< HEAD
     <span class="dadosPremio"> <strong> Local </strong>${corpo.local}</span>
     <span class="dadosPremio"> <strong> Data Proximo </strong> ${corpo.dataProximoConcurso} </span>
     <span class="dadosPremio"> <strong> Concurso Atual </strong> ${corpo.concurso} </span>
     <span class="dadosPremio"> <strong> Acumulado </strong> ${corpo.valorAcumuladoProximoConcurso}</span>
     <span class="dadosPremio"> <strong> Concurso Proximo </strong> ${corpo.proximoConcurso} </span>
-=======
 
 
     </section>
@@ -178,16 +152,23 @@ function telaDezena(corpo) {
 
 function telaEstadosPremiados(corpo) {
     corpo = corpo;
-    //console.log(corpo)
-    document.querySelector("#estado").innerHTML = `
-        <span>${corpo.localGanhadores[0].ganhadores}<strong> Ganhador</strong> de ${corpo.localGanhadores[0].municipio},</span>
-        <span>${corpo.localGanhadores[1].ganhadores}<strong> Ganhador</strong> de ${corpo.localGanhadores[1].municipio},</span>
-        <span>${corpo.localGanhadores[2].ganhadores}<strong> Ganhador</strong> de ${corpo.localGanhadores[2].municipio}.</span>
-        `
-        ;
 
+    console.log(...corpo.localGanhadores)
+    document.querySelector("#estadoPrimeiro").innerHTML = `
+        <span>${let = corpo.localGanhadores[0].ganhadores} Ganhador<span>
+        <span>${corpo.localGanhadores[0].municipio}<span>
+        <span> - ${corpo.localGanhadores[0].uf}<span>
+
+        <span>${let = corpo.localGanhadores[1].ganhadores} Ganhador<span>
+        <span>${corpo.localGanhadores[1].municipio}<span>
+        <span> - ${corpo.localGanhadores[1].uf}<span>
+
+        <span>${corpo.localGanhadores[2].ganhadores} Ganhador<span>
+        <span>${corpo.localGanhadores[2].municipio}<span>
+        <span> - ${corpo.localGanhadores[2].uf}<span>
+
+    `
 }
-
 
 // validaçao do nosso premio (logica propria) //
 
