@@ -60,7 +60,6 @@ async function ultimoConcurso(apiUltimo) {
 }
 
 function chamadaDeFunction(corpo) {
-
     popularTela(corpo);
     telaDezena(corpo)
     telaNossoJogo(corpo)
@@ -150,25 +149,31 @@ function telaDezena(corpo) {
 }
 // leva a tela os estados premiados a cada sorteio//
 
-function telaEstadosPremiados(corpo) {
-    corpo = corpo;
+const telaEstadosPremiados = (corpo) => {
+    const local = corpo.localGanhadores
+    for (let i = 0; i <local.length; i++) {
+        console.log(i)
+    document.querySelector("#estadoPrimeiro").innerHTML= `
+        <span> ${local[i].ganhadores }</span>
+        <span> ${local[i].municipio}</span>
+        <span> ${local[i].uf }</span>
 
-    console.log(...corpo.localGanhadores)
-    document.querySelector("#estadoPrimeiro").innerHTML = `
-        <span>${let = corpo.localGanhadores[0].ganhadores} Ganhador<span>
-        <span>${corpo.localGanhadores[0].municipio}<span>
-        <span> - ${corpo.localGanhadores[0].uf}<span>
+        <span> ${local[i*2].ganhadores }</span>
+        <span> ${local[i*2].municipio}</span>
+        <span> ${local[i*2].uf }</span>
 
-        <span>${let = corpo.localGanhadores[1].ganhadores} Ganhador<span>
-        <span>${corpo.localGanhadores[1].municipio}<span>
-        <span> - ${corpo.localGanhadores[1].uf}<span>
+        <span> ${local[i*3].ganhadores }</span>
+        <span> ${local[i*3].municipio}</span>
+        <span> ${local[i*3].uf }</span>
 
-        <span>${corpo.localGanhadores[2].ganhadores} Ganhador<span>
-        <span>${corpo.localGanhadores[2].municipio}<span>
-        <span> - ${corpo.localGanhadores[2].uf}<span>
+        <span> ${local[i*4].ganhadores }</span>
+        <span> ${local[i*4].municipio}</span>
+        <span> ${local[i*4].uf }</span>
 
-    `
-}
+
+
+        `
+}}
 
 // validaçao do nosso premio (logica propria) //
 
