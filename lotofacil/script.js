@@ -151,29 +151,24 @@ function telaDezena(corpo) {
 
 const telaEstadosPremiados = (corpo) => {
     const local = corpo.localGanhadores
-    for (let i = 0; i <local.length; i++) {
-        console.log(i)
-    document.querySelector("#estadoPrimeiro").innerHTML= `
-        <span> ${local[i].ganhadores }</span>
-        <span> ${local[i].municipio}</span>
-        <span> ${local[i].uf }</span>
-
-        <span> ${local[i*2].ganhadores }</span>
-        <span> ${local[i*2].municipio}</span>
-        <span> ${local[i*2].uf }</span>
-
-        <span> ${local[i*3].ganhadores }</span>
-        <span> ${local[i*3].municipio}</span>
-        <span> ${local[i*3].uf }</span>
-
-        <span> ${local[i*4].ganhadores }</span>
-        <span> ${local[i*4].municipio}</span>
-        <span> ${local[i*4].uf }</span>
-
-
-
-        `
-}}
+    if (let = local.length > 0) {
+        console.log(local)
+        for (var i = 0; i < local.length; i++) {
+            if (true) {
+                hender(local)
+                 function  hender(i) {
+                    console.log(local[0])
+                  let =  document.querySelector("#estadoPrimeiro").innerHTML = let = local[0] `
+                    ${let = ()=>{
+                        {local[0]= document.querySelector("#estadoPrimeiro").innerHTML }
+                    }}</span>
+                    `
+                    return;
+                }
+            }
+        }
+    }
+}
 
 // validaçao do nosso premio (logica propria) //
 
