@@ -18,6 +18,7 @@ const apiUltimo = ["https://loteriascaixa-api.herokuapp.com/api/lotofacil/latest
 // valida e traz dados do input para linkar com a API logo abaixo//
 function chamarInptValue(api) {
     let inputValue = document.querySelector("#pesquisar").value;
+
     if (let = pesquisar.value == []) {
         let = alert("Digite um concurso valido ⚠")
         inputUndefined(undefined)
@@ -149,25 +150,18 @@ function telaDezena(corpo) {
 }
 // leva a tela os estados premiados a cada sorteio//
 
+
 const telaEstadosPremiados = (corpo) => {
-    const local = corpo.localGanhadores
-    if (let = local.length > 0) {
-        console.log(local)
-        for (var i = 0; i < local.length; i++) {
-            if (true) {
-                hender(local)
-                 function  hender(i) {
-                    console.log(local[0])
-                  let =  document.querySelector("#estadoPrimeiro").innerHTML = let = local[0] `
-                    ${let = ()=>{
-                        {local[0]= document.querySelector("#estadoPrimeiro").innerHTML }
-                    }}</span>
-                    `
-                    return;
-                }
-            }
-        }
-    }
+ const ganhador = document.querySelector("#ganhador")
+ let lista = corpo.localGanhadores;
+ lista.map((e)=>{
+     console.log(e)
+    let div = document.createElement("div")
+    let list =  [e.ganhadores + " - Ganhador " + e.municipio+ " estado " +  e.uf]
+    div.innerHTML = list
+    ganhador.appendChild(div)
+ })
+
 }
 
 // validaçao do nosso premio (logica propria) //
