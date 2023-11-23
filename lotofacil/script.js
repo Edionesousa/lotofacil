@@ -59,7 +59,6 @@ async function ultimoConcurso(apiUltimo) {
     return corpo;
 
 }
-
 function chamadaDeFunction(corpo) {
     popularTela(corpo);
     telaDezena(corpo)
@@ -129,7 +128,7 @@ function telaNossoJogo(corpo) {
 
 
 // leva a tela dezenas sorteadas a cada dia//
-function telaDezena(corpo) {
+const  telaDezena = (corpo)=> {
     //console.log(corpo)
     document.querySelector("#span").innerHTML = corpo.concurso;
     document.querySelector("#num0").innerHTML = corpo.dezenas[0];
@@ -152,15 +151,15 @@ function telaDezena(corpo) {
 
 
 const telaEstadosPremiados = (corpo) => {
- const ganhador = document.querySelector("#ganhador")
+ const ganhador = document.querySelector("#estadoPremiado")
  let lista = corpo.localGanhadores;
  lista.map((e)=>{
-     console.log(e)
+     //console.log(e)
     let div = document.createElement("div")
-    let list =  [e.ganhadores + " - Ganhador " + e.municipio+ " estado " +  e.uf]
+    let list =  ["Ganhador " +e.municipio+ " estado " +  e.uf]
     div.innerHTML = list
     ganhador.appendChild(div)
- })
+})
 
 }
 
@@ -242,8 +241,12 @@ function pegarValoresIguaisTres(arrayTres) {
     }
     return arrayTres;
 }
-//// POR HORA FINAL DO CODIGO ///
 
+//O JOGO PERFEITO//
+
+
+//// POR HORA FINAL DO CODIGO ///
+//
 
 
 

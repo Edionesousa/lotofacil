@@ -43,8 +43,19 @@ button:hover {
     padding: 3px;
     border-radius: 3px;
     cursor: pointer;
-    justify-content: center;
+    justify-content:center;
     align-items: center;
+}
+#estadoPremiado{
+    display: flex;
+    border: dashed rgba(128, 0, 128, 0.672) 1px;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    justify-content: center;
+    align-items: start;
 }
 
 section .premio {
